@@ -1,0 +1,1759 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>JSP简介 | AbbottKilig&#39;s blog</title>
+  <meta name="keywords" content=" Web , JSP ">
+  <meta name="description" content="JSP简介 | AbbottKilig&#39;s blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="AbbottKilig&apos;s blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="about">
+<meta property="og:url" content="http://AbbottKilig.github.io/about/index.html">
+<meta property="og:site_name" content="AbbottKilig&#39;s blog">
+<meta property="og:description" content="AbbottKilig&apos;s blog">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-23T00:26:00.125Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="about">
+<meta name="twitter:description" content="AbbottKilig&apos;s blog">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+<script src="/js/iconfont.js?v=1.0.1"></script>
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value>
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>AbbottKilig</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="rss" href="/atom.xml" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="github" href="https://github.com/abbottkilig" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        <a title="email" href="mailto:abbottkilig@163.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=872336115&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(4)</small></div></li>
+    
+        
+            
+            <li><div data-rel="JavaEE">JavaEE<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="4">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Web</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Tomcat</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Java</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">JSP</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class=""
+           href="/JavaEE/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2019-09-23 08:26:00">2019/09/23</span>
+        </a>
+        
+        <a  class="JavaEE "
+           href="/JavaEE/手动构建Web应用/"
+           data-tag="Web"
+           data-author="" >
+            <span class="post-title" title="手动构建Web应用">手动构建Web应用</span>
+            <span class="post-date" title="2019-09-21 19:57:50">2019/09/21</span>
+        </a>
+        
+        <a  class="JavaEE "
+           href="/JavaEE/Tomcat安装与配置/"
+           data-tag="Web,Tomcat,Java"
+           data-author="" >
+            <span class="post-title" title="Tomcat安装与配置">Tomcat安装与配置</span>
+            <span class="post-date" title="2019-09-21 12:16:41">2019/09/21</span>
+        </a>
+        
+        <a  class="JavaEE "
+           href="/JavaEE/JSP简介/"
+           data-tag="Web,JSP"
+           data-author="" >
+            <span class="post-title" title="JSP简介">JSP简介</span>
+            <span class="post-date" title="2019-09-23 08:43:06">2019/09/23</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-JSP简介" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">JSP简介</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="JavaEE">JavaEE</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color4">Web</a>
+            
+            <a href="javascript:" class="color4">JSP</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-09-24 16:43:13'>2019-09-23 08:43</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-JSP入门"><span class="toc-text">1. JSP入门</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-JSP基础语法"><span class="toc-text">2. JSP基础语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-JSP注释"><span class="toc-text">2.1 JSP注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-JSP声明"><span class="toc-text">2.2 JSP声明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-JSP输出表达式"><span class="toc-text">2.3 JSP输出表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-JSP脚本"><span class="toc-text">2.4 JSP脚本</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-JSP编译指令"><span class="toc-text">3. JSP编译指令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-page指令"><span class="toc-text">3.1  page指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-include指令"><span class="toc-text">3.2 include指令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-JSP动作指令"><span class="toc-text">4. JSP动作指令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-forward指令"><span class="toc-text">4.1 forward指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-include指令"><span class="toc-text">4.2 include指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-useBean，setProperty，getProperty指令"><span class="toc-text">4.3 useBean，setProperty，getProperty指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-param指令"><span class="toc-text">4.4 param指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-5-plugin指令"><span class="toc-text">4.5 plugin指令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-JSP内置对象"><span class="toc-text">5. JSP内置对象</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-request对象"><span class="toc-text">5.1 request对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-1-获取请求头-参数信息"><span class="toc-text">5.1.1 获取请求头/参数信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-2-操作request范围内属性"><span class="toc-text">5.1.2 操作request范围内属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-response对象"><span class="toc-text">5.2 response对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-1-response非字符响应"><span class="toc-text">5.2.1 response非字符响应</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-2-重定向"><span class="toc-text">5.2.2 重定向</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-3-Cookie"><span class="toc-text">5.2.3 Cookie</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-application对象"><span class="toc-text">5.3 application对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-1-多个JSP、Servlet之间共享数据"><span class="toc-text">5.4.1 多个JSP、Servlet之间共享数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-2-获取Web应用配置参数"><span class="toc-text">5.4.2 获取Web应用配置参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-5-config对象"><span class="toc-text">5.5 config对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-6-pageContext对象"><span class="toc-text">5.6 pageContext对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-7-session对象"><span class="toc-text">5.7 session对象</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JSP（Java Server Pages）是Sun Microsystems公司倡导、许多公司参与一起建立的一种动态网页技术标准，其技术ASP类似，是在传统的网页HTML中插入Java代码段和JSP标签（tag），从而动态的扩充网页的能力。</p>
+<p>JSP技术使用Java编写类XML的tags和scriptlets，封装产生动态网页的处理逻辑，当Web服务器遇到访问JSP网页的请求时，首先执行其中的程序段，然后将执行结果连同JSP文件中的HTML代码一起返回给客户端，从而实现网页逻辑与网页设计和显示的分离，从而加速和简化Web应用程序的开发。</p>
+<p>从上面的介绍可以看出，JSP页面的内容主要由两个部分组成。</p>
+<ul>
+<li>静态部分：标准的HTML标签、静态的页面内容。</li>
+<li>动态不分：受Java程序控制的内容，由Java脚本动态生成</li>
+</ul>
+<h1 id="1-JSP入门"><a href="#1-JSP入门" class="headerlink" title="1. JSP入门"></a>1. JSP入门</h1><p>同样的，对demo工程下的hello.jsp页面进行修改，展示一个相对简单的JSP页面。</p>
+<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Jsp入门&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;%
+for(int i = 0 ; i &lt; 7; i++)
+{
+    out.print(&quot;&lt;font size=&quot; + i + &quot;&gt;&quot;);
+%&gt;
+Hello world&lt;/font&gt;
+&lt;/br&gt;
+&lt;% } %&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p><img src="https://img-blog.csdnimg.cn/20190923094321888.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTAxNjY0MDQ=,size_16,color_FFFFFF,t_70" alt="图1-1"></p>
+<p>如图1-1所示，页面展示了将<code>Hello world</code>用不同的字体大小进行展示。代码中，放置在<code>&lt;% %&gt;</code>之间的便是Java脚本了，通过这种方式就可以把Java代码嵌入到HTML页面中。</p>
+<p>从表面上看，JSP页面似乎不再需要Java类，脱离了Java面向对象的特征。实时上，JSP的本质是Servlet，每个JSP页面都是一个Servlet实例。在运行时，JSP页面由系统编译成Servlet，Serlet再负责响应用户的请求。</p>
+<p>当启动Tomcat之后，JSP页面生成的Servlet放在work路径对应的Web应用目录下。例如demo工程就可以在Tomcat的<code>work\Catalina\localhost\demo\org\apache\jsp</code>目录下找到<code>hello_<a href="http://jsp.java" class="test test-url" target="_blank" rel="noopener noreferrer">jsp.java</a></code>和<code>hello_jsp.class</code>两个文件。</p>
+<p>打开hello_<a href="http://jsp.java" class="test test-url" target="_blank" rel="noopener noreferrer">jsp.java</a>文件的源代码，内容如下：</p>
+<pre><code>/*
+ * Generated by the Jasper component of Apache Tomcat
+ * Version: Apache Tomcat/9.0.26
+ * Generated at: 2019-09-23 01:55:45 UTC
+ * Note: The last modified time of this file was set to
+ *       the last modified time of the source file after
+ *       generation to assist with modification tracking.
+ */
+package org.apache.jsp;
+
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.jsp.*;
+
+public final class hello_jsp extends org.apache.jasper.runtime.HttpJspBase
+    implements org.apache.jasper.runtime.JspSourceDependent,
+                 org.apache.jasper.runtime.JspSourceImports {
+
+  private static final javax.servlet.jsp.JspFactory _jspxFactory =
+          javax.servlet.jsp.JspFactory.getDefaultFactory();
+
+  private static java.util.Map&lt;java.lang.String,java.lang.Long&gt; _jspx_dependants;
+
+  private static final java.util.Set&lt;java.lang.String&gt; _jspx_imports_packages;
+
+  private static final java.util.Set&lt;java.lang.String&gt; _jspx_imports_classes;
+
+  static {
+    _jspx_imports_packages = new java.util.HashSet&lt;&gt;();
+    _jspx_imports_packages.add(&quot;javax.servlet&quot;);
+    _jspx_imports_packages.add(&quot;javax.servlet.http&quot;);
+    _jspx_imports_packages.add(&quot;javax.servlet.jsp&quot;);
+    _jspx_imports_classes = null;
+  }
+
+  private volatile javax.el.ExpressionFactory _el_expressionfactory;
+  private volatile org.apache.tomcat.InstanceManager _jsp_instancemanager;
+
+  public java.util.Map&lt;java.lang.String,java.lang.Long&gt; getDependants() {
+    return _jspx_dependants;
+  }
+
+  public java.util.Set&lt;java.lang.String&gt; getPackageImports() {
+    return _jspx_imports_packages;
+  }
+
+  public java.util.Set&lt;java.lang.String&gt; getClassImports() {
+    return _jspx_imports_classes;
+  }
+
+  public javax.el.ExpressionFactory _jsp_getExpressionFactory() {
+    if (_el_expressionfactory == null) {
+      synchronized (this) {
+        if (_el_expressionfactory == null) {
+          _el_expressionfactory = _jspxFactory.getJspApplicationContext(getServletConfig().getServletContext()).getExpressionFactory();
+        }
+      }
+    }
+    return _el_expressionfactory;
+  }
+
+  public org.apache.tomcat.InstanceManager _jsp_getInstanceManager() {
+    if (_jsp_instancemanager == null) {
+      synchronized (this) {
+        if (_jsp_instancemanager == null) {
+          _jsp_instancemanager = org.apache.jasper.runtime.InstanceManagerFactory.getInstanceManager(getServletConfig());
+        }
+      }
+    }
+    return _jsp_instancemanager;
+  }
+
+  public void _jspInit() {
+  }
+
+  public void _jspDestroy() {
+  }
+
+  public void _jspService(final javax.servlet.http.HttpServletRequest request, final javax.servlet.http.HttpServletResponse response)
+      throws <a href="http://java.io.IOException" class="test test-url" target="_blank" rel="noopener noreferrer">java.io.IOException</a>, javax.servlet.ServletException {
+
+    if (!javax.servlet.DispatcherType.ERROR.equals(request.getDispatcherType())) {
+      final java.lang.String _jspx_method = request.getMethod();
+      if (&quot;OPTIONS&quot;.equals(_jspx_method)) {
+        response.setHeader(&quot;Allow&quot;,&quot;GET, HEAD, POST, OPTIONS&quot;);
+        return;
+      }
+      if (!&quot;GET&quot;.equals(_jspx_method) &amp;&amp; !&quot;POST&quot;.equals(_jspx_method) &amp;&amp; !&quot;HEAD&quot;.equals(_jspx_method)) {
+        response.setHeader(&quot;Allow&quot;,&quot;GET, HEAD, POST, OPTIONS&quot;);
+        response.sendError(HttpServletResponse.SC_METHOD_NOT_ALLOWED, &quot;JSP 只允许 GET、POST 或 HEAD。Jasper 还允许 OPTIONS&quot;);
+        return;
+      }
+    }
+
+    final javax.servlet.jsp.PageContext pageContext;
+    javax.servlet.http.HttpSession session = null;
+    final javax.servlet.ServletContext application;
+    final javax.servlet.ServletConfig config;
+    javax.servlet.jsp.JspWriter out = null;
+    final java.lang.Object page = this;
+    javax.servlet.jsp.JspWriter _jspx_out = null;
+    javax.servlet.jsp.PageContext _jspx_page_context = null;
+
+
+    try {
+      response.setContentType(&quot;text/html; charset=UTF-8&quot;);
+      pageContext = _jspxFactory.getPageContext(this, request, response,
+                  null, true, 8192, true);
+      _jspx_page_context = pageContext;
+      application = pageContext.getServletContext();
+      config = pageContext.getServletConfig();
+      session = pageContext.getSession();
+      out = pageContext.getOut();
+      _jspx_out = out;
+
+      out.write(&quot;\n&quot;);
+      out.write(&quot;&lt;!DOCTYPE html&gt;\n&quot;);
+      out.write(&quot;&lt;html&gt;\n&quot;);
+      out.write(&quot;&lt;head&gt;\n&quot;);
+      out.write(&quot;&lt;meta charset=\&quot;UTF-8\&quot;&gt;\n&quot;);
+      out.write(&quot;&lt;title&gt;JSP入门&lt;/title&gt;\n&quot;);
+      out.write(&quot;&lt;/head&gt;\n&quot;);
+      out.write(&quot;&lt;body&gt;\n&quot;);
+
+for(int i = 0 ; i &lt; 7; i++)
+{
+    out.print(&quot;&lt;font size=&quot; + i + &quot;&gt;&quot;);
+
+      out.write(&quot;\n&quot;);
+      out.write(&quot;Hello world&lt;/font&gt;\n&quot;);
+      out.write(&quot;&lt;/br&gt;\n&quot;);
+ }
+      out.write(&quot;\n&quot;);
+      out.write(&quot;&lt;/body&gt;\n&quot;);
+      out.write(&quot;&lt;/html&gt;&quot;);
+    } catch (java.lang.Throwable t) {
+      if (!(t instanceof javax.servlet.jsp.SkipPageException)){
+        out = _jspx_out;
+        if (out != null &amp;&amp; out.getBufferSize() != 0)
+          try {
+            if (response.isCommitted()) {
+              out.flush();
+            } else {
+              out.clearBuffer();
+            }
+          } catch (<a href="http://java.io.IOException" class="test test-url" target="_blank" rel="noopener noreferrer">java.io.IOException</a> e) {}
+        if (_jspx_page_context != null) _jspx_page_context.handlePageException(t);
+        else throw new ServletException(t);
+      }
+    } finally {
+      _jspxFactory.releasePageContext(_jspx_page_context);
+    }
+  }
+}</code></pre><p>上面代码看似困难，当学到后面深入理解Servlet之后将变得异常简单，此处我们只关注其中的三个方法。</p>
+<ul>
+<li>init()：吃书画JSP/Servlet的方法</li>
+<li>destory()：销毁JSP/Servlet的方法</li>
+<li>service()：对用户请求生成响应的代码。</li>
+</ul>
+<p>并且，此处我们重点关注service()方法，可以在其中发现图1-2中这样的代码段。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190923102856566.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTAxNjY0MDQ=,size_16,color_FFFFFF,t_70" alt="图1-2"></p>
+<p>可以看出service()方法中首先在步骤1中生成了一个<code>out</code>页面元素输出对象；然后在步骤2中输出HTML页面的<code>body</code>主体之前的标签；步骤3中输出输出控制的业务逻辑；最后，输出了了HTML页面标签的结尾。</p>
+<p>因此，我们可以得出结论，JSP页面显示的所有内容都是hello_<a href="http://hsp.java" class="test test-url" target="_blank" rel="noopener noreferrer">hsp.java</a>文件通过输出流来完成的。</p>
+<h1 id="2-JSP基础语法"><a href="#2-JSP基础语法" class="headerlink" title="2. JSP基础语法"></a>2. JSP基础语法</h1><p>上一节提到，JSP页面是由HTML代码和Java业务逻辑代码共同完成的，因此，可以按照如下的步骤开发JSP页面。</p>
+<ol>
+<li>编写静态HTML代码</li>
+<li>在静态HTML页面啊中嵌入Java逻辑代码，增加网页动态功能</li>
+</ol>
+<p>JSP中的Java逻辑由4中基本的语法组成，接下来将分别对这些语法进行讲解。</p>
+<h2 id="2-1-JSP注释"><a href="#2-1-JSP注释" class="headerlink" title="2.1 JSP注释"></a>2.1 JSP注释</h2><p>JSP注释用于标注程序开发过程中的开发信息，方便后续的开发与维护，因此，也不会输出到客户端中，其格式如下</p>
+<pre><code>&lt;%-- comment --%&gt;</code></pre><p>同样，JSP里面有HTML代码，它的注释格式略微不同，格式是：</p>
+<pre><code>&lt;!-- comment --&gt;</code></pre><blockquote>
+<p>HTML的注释会发送到客户端</p>
+</blockquote>
+<p>作为示例，在demo工程下新建与hello.jsp同级别的comment.jsp，复制如下内容：</p>
+<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;comment demo&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;%-- JSP comment--%&gt;
+&lt;p&gt;这是JSP注释&lt;/p&gt;
+
+&lt;!-- HTML comment --&gt;
+&lt;p&gt;这是HTML注释&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p>浏览器访问<a href="http://localhost/demo/comment.jsp" target="_blank" rel="noopener">http://localhost/demo/comment.jsp</a>,查看源代码可以看到</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;comment demo&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+
+&lt;p&gt;这是JSP注释&lt;/p&gt;
+
+&lt;!-- HTML comment --&gt;
+&lt;p&gt;这是HTML注释&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p>从源代码也可以看出，HTML注释的内容得到了保留，但是JSP注释不会被发送给客户端，说明JSP注释在JSP文件编译成为Servelt的阶段被“丢弃”。</p>
+<h2 id="2-2-JSP声明"><a href="#2-2-JSP声明" class="headerlink" title="2.2 JSP声明"></a>2.2 JSP声明</h2><p>JSP声明用于声明逻辑代码的变量和方法，其语法格式如下：</p>
+<pre><code>&lt;%! declare %&gt;</code></pre><p>作为示例，在demo项目目录下新建declare.jsp文件，拷贝以下内容：</p>
+<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;declare demo&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;%-- JSP declare --%&gt;
+&lt;%! 
+public int number = 0 ;
+public int add()
+{
+    number = number + 1;
+    return number;
+}
+
+%&gt;
+
+
+&lt;% 
+out.println(add());
+%&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p>在浏览器地址输入<a href="http://localhost/demo/declare.jsp" target="_blank" rel="noopener">http://localhost/demo/declare.jsp</a>可以看到正常输出的number值，每次刷新，number值将加1。</p>
+<p>上面的代码中，声明了一个<code>int</code>类型的变量和一个普通方法，虽然看起来这个变量和方法不属于任何类，可以独立存在，但是，正如前面提到的，JSP本质还是一个Servlet。因此，打开Tomcat的<code>work\Catalina\localhost\demo\org\apache\jsp</code>目录下的declare_<a href="http://jsp.java" class="test test-url" target="_blank" rel="noopener noreferrer">jsp.java</a>，可以看到如下的代码片段：</p>
+<pre><code>public final class declare_jsp extends org.apache.jasper.runtime.HttpJspBase
+    implements org.apache.jasper.runtime.JspSourceDependent,
+             org.apache.jasper.runtime.JspSourceImports {
+
+
+    public int number = 0 ;
+    public int add()
+    {
+        number = number + 1;
+        return number;
+    }
+    …
+}</code></pre><p>上面部分的代码和JSP页面声明部分的完全一致，这说明JSP页面声明部分的代码将转换成对应的Servlet的成员变量和成员方法。</p>
+<h2 id="2-3-JSP输出表达式"><a href="#2-3-JSP输出表达式" class="headerlink" title="2.3 JSP输出表达式"></a>2.3 JSP输出表达式</h2><p>之前的JSP页面均调用了<code>out.println()</code>方法来实现信息的输出。实际上，JSP提供了一种输出方式的简化版本，其语法格式如下：</p>
+<pre><code>&lt;%=expression%&gt;</code></pre><p>在demo工程下新建expression.jsp页面，拷贝以下内容：</p>
+<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;expression demo&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;%! 
+public int number = 0 ;
+public int add()
+{
+    number = number + 1;
+    return number;
+}
+
+%&gt;
+
+&lt;%=add() %&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p>浏览器访问<a href="http://localhost/demo/expression.jsp" target="_blank" rel="noopener">http://localhost/demo/expression.jsp</a>，可以看到访问输出和前一节的declare.jsp完全一致。由由此可见，输出表达式能够自动转换成Servlet里面的输出语句。</p>
+<h2 id="2-4-JSP脚本"><a href="#2-4-JSP脚本" class="headerlink" title="2.4 JSP脚本"></a>2.4 JSP脚本</h2><p>JSP脚本可以充分利用Java语言的特性，放置任何可以执行的语句，循环、条件判断等，甚至可以连接数据库和执行数据库操作。</p>
+<p>作为示例，在demo工程下，创建dao.jsp文件，拷贝以下内容：</p>
+<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;%@ page import=&quot;java.sql.*&quot; %&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;jsp script demo&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;% 
+Class.forName(&quot;com.mysql.cj.jdbc.Driver&quot;);
+Connection conn = DriverManager.getConnection(&quot;jdbc:<a href="mysql://localhost:3306/wechat?useSSL=false&&allowPublicKeyRetrieval=true&&serverTimezone=UTC" class="test test-url" target="_blank" rel="noopener noreferrer">mysql://localhost:3306/wechat?useSSL=false&amp;&amp;allowPublicKeyRetrieval=true&amp;&amp;serverTimezone=UTC</a>&quot;,&quot;root&quot;,&quot;password&quot;);
+
+PreparedStatement ps = conn.prepareStatement(&quot;select * from emoji&quot;);
+ResultSet rs = ps.executeQuery();
+while (rs.next()) {
+    out.println(rs.getString(1) );
+}
+conn.close();
+%&gt;
+
+&lt;/body&gt;
+&lt;/html&gt; </code></pre><p>浏览器访问<a href="http://localhost/demo/dao.jsp" target="_blank" rel="noopener">http://localhost/demo/dao.jsp</a>,可以看到从数据库拿到的数据行。</p>
+<p>此处采用了MySQL作为数据存储，执行SQL查询需要使用数据库驱动程序，如在Tomcat的安装一节中提到项目项目下的lib包用来存放第三方依赖库。因为，需要将MySQL的jar包放在demo工程的WEB-INF/lib目录下。</p>
+<blockquote>
+<p>本文采用MySQL8.0数据库版本，数据库驱动加载与老版本稍有区别，具体表现为MySQL8.0及以上版本的数据库加载类为<code>&quot;com.mysql.cj.jdbc.Driver&quot;)</code>，老版本加载的驱动为<code>com.mysql.jdbc.Driver</code>。</p>
+</blockquote>
+<h1 id="3-JSP编译指令"><a href="#3-JSP编译指令" class="headerlink" title="3. JSP编译指令"></a>3. JSP编译指令</h1><p>JSP的编译指令是通知JSP引擎的消息，它不直接生成输出信息。</p>
+<p>常见的编译指令有下面三个：</p>
+<ul>
+<li>page：针对当前页面的指令</li>
+<li>include：包含另一个页面</li>
+<li>taglib：定义和访问自定义标签</li>
+</ul>
+<p>接下来，将分别对着三个编译指令进行讲解</p>
+<h2 id="3-1-page指令"><a href="#3-1-page指令" class="headerlink" title="3.1  page指令"></a>3.1  page指令</h2><p>page指令一般位于JSP页面的顶端，而且一个JSP页面可以含有多条page指令，其语法格式如下：</p>
+<pre><code>&lt;%
+[language = &quot;Java&quot;]
+[extends = &quot;package.class&quot;]
+[import = &quot;package.class|package.*,...&quot;]
+[session = &quot;true|false&quot;]
+[buffer = &quot;none|8KB|size Kb&quot;]
+[autoFlush = &quot;true|false&quot;]
+[isThreadSafe = &quot;true|false&quot;]
+[info =  &quot;text&quot;]
+[errorPage = &quot;relativeURL&quot;]
+[contentType=&quot;MIME-Type[; charset=Character-Set]|&quot;text/html; charSet=UTF-8&quot;]
+[pageEncoding=&quot;UTF-8&quot;]
+[isErrorPage=&quot;true|false&quot;]
+%&gt;</code></pre><ul>
+<li>language：声明当前JSP页面使用的脚本语言的种类，默认值是Java,通常无需设置</li>
+<li>extends：指定JSP页面编译产生的Java类继承的父类或实现的接口</li>
+<li>import：导入包。默认导入的包有<code>java.lang.*,javax.servlet.*,javax.servlet.jsp.*,javax.servlet.http.*</code>。</li>
+<li>session：控制页面是否参与HTTP会话。true 值（默认）表示，如果存在已有会话，则预定义变量 session （类型为HttpSession）应该绑定到现有的会话；否则，创建新的会话并将其绑定到 session。false 值表示不自动创建会话，在 JSP 页面转换成 servlet 时，对变量 session 的访问会导致错误。</li>
+<li>buffer：设置输出缓冲区的大小，默认为8KB。</li>
+<li>autoFlush：输出缓冲区溢出时，是否强制输出缓冲区的内容。设置为true时，正常输出；设置为false，会在buffer溢出时产生一个异常。</li>
+<li>info：设置JSP程序的说明信息，可以通过<code>Servlet.getServletInfo()</code>方法获取该值。在JSP页面中，可直接调用<code>getServletInfo()</code>方法获取该值。</li>
+<li>errorPage：指定错误处理页面。当本页面产生没有捕获的异常或错误，自动调用该属性指定的JSP页面。</li>
+<li>isErrorPage：设置JSP页面为错误处理页面。</li>
+<li>contentType：设置Content-Type响应报头，标明即将发送到客户程序的文档的 MIME 类型</li>
+<li>pageEncoding：指定网页的编码字符集。</li>
+</ul>
+<p>继续以demo工程的dao.jsp页面为例，来说明部分指令的用法。</p>
+<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;%@ page errorPage=&quot;errorPage.jsp&quot;%&gt;
+&lt;%@ page import=&quot;java.sql.*&quot; %&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;jsp script demo&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;% 
+Class.forName(&quot;com.mysql.cj.jdbc.Driver&quot;);
+Connection conn = DriverManager.getConnection(&quot;jdbc:<a href="mysql://localhost:3306/wechat?useSSL=false&&allowPublicKeyRetrieval=true&&serverTimezone=UTC" class="test test-url" target="_blank" rel="noopener noreferrer">mysql://localhost:3306/wechat?useSSL=false&amp;&amp;allowPublicKeyRetrieval=true&amp;&amp;serverTimezone=UTC</a>&quot;,&quot;root&quot;,&quot;<a href="mailto:71939224@qq.com" class="test test-email" target="_blank" rel="noopener noreferrer">71939224@qq.com</a>&quot;);
+
+PreparedStatement ps = conn.prepareStatement(&quot;select * from emoji&quot;);
+ResultSet rs = ps.executeQuery();
+while (rs.next()) {
+    out.println(rs.getString(1) );
+}
+conn.close();
+%&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;  </code></pre><p>可以看到页面使用的language为java，contentType为<code>text/html;charset=utf-8</code>,pageEncoding为utf-8，声明错误页面为errorPage.jsp，导入的包为<code>java.sql.*</code>。</p>
+<p>此时，我们新建errorPage.jsp，复制以下内容</p>
+<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;%@ page isErrorPage=&quot;true&quot; %&gt;
+
+&lt;%@ page import=&quot;java.sql.*&quot; %&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;error page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;Server run error!&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;  </code></pre><p>当将dao.jsp页面跟数据库交互的请求发生错误时，将自动跳转到并显示如图3-1所示的界面</p>
+<p><img src="https://img-blog.csdnimg.cn/20190923174415490.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTAxNjY0MDQ=,size_16,color_FFFFFF,t_70" alt="图3-1"></p>
+<h2 id="3-2-include指令"><a href="#3-2-include指令" class="headerlink" title="3.2 include指令"></a>3.2 include指令</h2><p>include指令可以将一个外部文件嵌入到当前JSP文件，同时解析页面中的JSP语句。</p>
+<p>include指令包括静态指令和动态指令两种。</p>
+<ul>
+<li><p>静态指令的语法格式如下：</p>
+<p>  &lt;@ include file=””&gt;</p>
+</li>
+<li><p>动态指令的语法格式如下：</p>
+<p>  &lt;jsp:include page=”” flush=”true”&gt;</p>
+</li>
+</ul>
+<p>区别在于静态的include指令会将包含的页面直接添加到本页面，融合成为一个页面。而动态指令在运行时才会生成页面内容。</p>
+<p>作为示例，在demo工程下新建common.jsp页面，复制以下内容：</p>
+<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+pageEncoding=&quot;UTF-8&quot;%&gt;
+
+&lt;p&gt;This is common page.&lt;/p&gt;
+&lt;br&gt;</code></pre><p>再新建include.jsp页面，复制以下内容：</p>
+<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+pageEncoding=&quot;UTF-8&quot;%&gt;
+
+&lt;%@ include file=&quot;common.jsp&quot; %&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;JSP include command&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+This is include page
+&lt;br&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p>浏览器访问<a href="http://localhost/include.jsp" target="_blank" rel="noopener">http://localhost/include.jsp</a>，可以看到如图3-2所示的输出。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190923180716182.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTAxNjY0MDQ=,size_16,color_FFFFFF,t_70" alt="图3-2"></p>
+<p>这表明include指令能够将页面包含进来。此时，查看<code>work\Catalina\localhost\demo\org\apache\jsp</code>目录下的include_<a href="http://jsp.java" class="test test-url" target="_blank" rel="noopener noreferrer">jsp.java</a>文件的代码，可以看到如下的部分：</p>
+<pre><code>out.write(&quot;\n&quot;);
+ out.write(&quot;    \n&quot;);
+ out.write(&quot;\n&quot;);
+ out.write(&quot;\n&quot;);
+ out.write(&quot;&lt;p&gt;This is common page.&lt;/p&gt;\n&quot;);
+ out.write(&quot;&lt;br&gt;\n&quot;);
+ out.write(&quot;\n&quot;);
+ out.write(&quot;&lt;!DOCTYPE html&gt;\n&quot;);
+ out.write(&quot;&lt;html&gt;\n&quot;);
+ out.write(&quot;&lt;head&gt;\n&quot;);
+ out.write(&quot;&lt;meta charset=\&quot;UTF-8\&quot;&gt;\n&quot;);
+ out.write(&quot;&lt;title&gt;JSP include command&lt;/title&gt;\n&quot;);
+ out.write(&quot;&lt;/head&gt;\n&quot;);
+ out.write(&quot;&lt;body&gt;\n&quot;);
+ out.write(&quot;This is include page\n&quot;);
+ out.write(&quot;&lt;br&gt;\n&quot;);
+ out.write(&quot;&lt;/body&gt;\n&quot;);
+ out.write(&quot;&lt;/html&gt;&quot;);</code></pre><p>可以看到，静态include指令直接将common页面的内容融合在了生成的Servlet文件中。</p>
+<p>接下来，将include.jsp文件中的静态include指令改为动态指令<code>&lt;jsp:include page=&quot;common.jsp&quot;&gt;&lt;/jsp:include&gt;</code>，刷新页面访问，再次请求页面，查看include_<a href="http://jsp.java" class="test test-url" target="_blank" rel="noopener noreferrer">jsp.java</a>文件，可以看到如下的代码。</p>
+<pre><code>out.write(&quot;\n&quot;);
+  out.write(&quot;    \n&quot;);
+  org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, &quot;common.jsp&quot;, out, false);
+  out.write(&quot;\n&quot;);
+  out.write(&quot;&lt;!DOCTYPE html&gt;\n&quot;);
+  out.write(&quot;&lt;html&gt;\n&quot;);
+  out.write(&quot;&lt;head&gt;\n&quot;);
+  out.write(&quot;&lt;meta charset=\&quot;UTF-8\&quot;&gt;\n&quot;);
+  out.write(&quot;&lt;title&gt;JSP include command&lt;/title&gt;\n&quot;);
+  out.write(&quot;&lt;/head&gt;\n&quot;);
+  out.write(&quot;&lt;body&gt;\n&quot;);
+  out.write(&quot;This is include page\n&quot;);
+  out.write(&quot;&lt;br&gt;\n&quot;);
+  out.write(&quot;&lt;/body&gt;\n&quot;);
+  out.write(&quot;&lt;/html&gt;&quot;);</code></pre><p>可以看出动态输出内容由调用动态生成。因此，如果被包含页面经常更新，建议采用动态标签。</p>
+<h1 id="4-JSP动作指令"><a href="#4-JSP动作指令" class="headerlink" title="4. JSP动作指令"></a>4. JSP动作指令</h1><p>动作指令和编译指令有所不同，编译指令在将JSP编译成Servlet时起作用，而处理指令通畅可以替换成JSP小脚本，只是JSP小脚本的标准化写法。</p>
+<p>JSP动作指令有如下几种：</p>
+<ul>
+<li><code>jsp:forward</code>：执行页面转向，将请求的处理转发到下一个页面</li>
+<li><code>jsp:param</code>：用于传递参数，必须与其他支持参数的标签一起使用</li>
+<li><code>jsp:include</code>：动态包含JSP页面</li>
+<li><code>jsp:plugin</code>：下载Javabean或Applet在客户端执行</li>
+<li><code>jsp:useBean</code>：创建一个JavaBean实例</li>
+<li><code>jsp:setProperty</code>：设置JavaBean的属性值</li>
+<li><code>jsp:getProperty</code>：输出JavaBean实例的属性值</li>
+</ul>
+<h2 id="4-1-forward指令"><a href="#4-1-forward指令" class="headerlink" title="4.1 forward指令"></a>4.1 forward指令</h2><p>forward指令用于将页面响应转发到另外的页面（HTML,JSP,Servlet），其语法格式如下：</p>
+<pre><code>&lt;jsp:forward page={URL|&lt;%=expression%&gt;}&gt;
+    {&lt;<a href="jsp:param.../" class="test test-url" target="_blank" rel="noopener noreferrer">jsp:param...</a>&gt;}
+&lt;/jsp:forward&gt;</code></pre><p>语法中采用<code>jsp:param</code>来在转发时额外的增加请求参数。增加的请求参数的值可以通过<code>HttpServletRequest</code>的<code>getParameter()</code>方法获取。</p>
+<p>同样的，我们在demo工程下新建forward.jsp页面，拷贝以下内容，来展示forward指令的用法。</p>
+<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;forward demo&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;foward 原始页面&lt;/p&gt;
+
+&lt;jsp:forward page=&quot;forward-result.jsp&quot;&gt;
+    &lt;jsp:param value=&quot;AbbottKilig&quot; name=&quot;name&quot;/&gt;
+&lt;/jsp:forward&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p>在页面中，将客户端的请求转发到了foward-result.jsp页面中，二球额在转发时增加了一个请求参数：参数名为name，值为AbbottKilig。</p>
+<p>同时，新建forward-result.jsp页面，拷贝以下内容</p>
+<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;forward result demo&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;foward 结果页&lt;/p&gt;
+
+&lt;%=request.getParameter(&quot;name&quot;) %&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p>在此页面中，使用内置HttpServletRequest类型的对象实例request来获取增加的请求参数值。</p>
+<p>如图4-1所示，当浏览器请求<a href="http://localhost/demo/forward.jsp" target="_blank" rel="noopener">http://localhost/demo/forward.jsp</a>时，用户请求的地址没有发生改变，但是页面内容已经完全变成被forward目标页面的内容。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190923233915375.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTAxNjY0MDQ=,size_16,color_FFFFFF,t_70" alt="图4-1"></p>
+<blockquote>
+<p>执行forward指令，原始的客户端的请求参数不会丢失</p>
+</blockquote>
+<h2 id="4-2-include指令"><a href="#4-2-include指令" class="headerlink" title="4.2 include指令"></a>4.2 include指令</h2><p>include指令作为动态加载指令，在上一节已经讲过，在此，稍作补充。</p>
+<p>include动作指令的语法格式如下：</p>
+<pre><code>&lt;jsp:include page=&quot;&quot; flush=&quot;true&quot;&gt;
+    &lt;jsp:param name=&quot;&quot; value=&quot;&quot;/&gt;
+&lt;/jsp:include&gt;</code></pre><p>flush属性用于指定输出缓存是都转移到被导入文件中。当指定为true时，则包含在被导入文件中。同样的<code>jsp:param</code>用于在被导入页面中加入额外的请求参数。</p>
+<p>作为示例，在demo工程下修改common.jsp文件，拷贝如下内容：</p>
+<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;common demo&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;jsp:include page=&quot;forward-result.jsp&quot;&gt;
+    &lt;jsp:param value=&quot;AbbottKilig&quot; name=&quot;name&quot;/&gt;
+&lt;/jsp:include&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p>可以看到显示内容和图4-1相一致，表明include传递的参数可以被包含页获取。</p>
+<h2 id="4-3-useBean，setProperty，getProperty指令"><a href="#4-3-useBean，setProperty，getProperty指令" class="headerlink" title="4.3 useBean，setProperty，getProperty指令"></a>4.3 useBean，setProperty，getProperty指令</h2><p>这几个指令都用于Javabean的处理，useBean用于初始化Bean示例；setProperty用于是设置属性值；getProperty用于获取属性值。</p>
+<p>useBean的语法格式如下：</p>
+<pre><code>&lt;jsp:useBean id=&quot;name&quot;, class=&quot;classname&quot;, scope=&quot;page|reques|session|application&quot;&gt;&lt;/jsp:useBean&gt;</code></pre><p>其中，id属性是JavaBean的实例名，class属性表示JavaBean的实现类，scope属性指定了javaBean实例的作用范围。</p>
+<p>setPropperty的语法格式如下：</p>
+<pre><code>&lt;jsp:setProperty property=&quot;property&quot; name=&quot;beanId&quot; value=&quot;value&quot;/&gt;</code></pre><p>其中，name属性来唯一确定JavaBean的实例名；property属性确定需要设置的属性名，value表示设置的具体值。</p>
+<p>getProperty指令的语法格式如下：</p>
+<pre><code>&lt;jsp:getProperty property=&quot;propertyName&quot; name=&quot;BeanID&quot;/&gt;</code></pre><p>其中，name属性来唯一确定需要输出的JavaBean的实例名；property属性确定需要输出的属性名。</p>
+<p>接下来， 对这部分指令的功能与执行效果进行具体的展示。</p>
+<p>首先，<a href="http://在io.github.abbottlilig包下新建WebSite.java文件" class="test test-url" target="_blank" rel="noopener noreferrer">在io.github.abbottlilig包下新建WebSite.java文件</a>，拷贝以下内容：</p>
+<pre><code>package io.github.abbottkilig;
+
+public class WebSite {
+
+    private String url;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }    
+
+}</code></pre><p><a href="http://WebSite.java" class="test test-url" target="_blank" rel="noopener noreferrer">WebSite.java</a>文件作为Bean实例的class类型存在。</p>
+<p>接下来，在demo工程下新建bean.jsp，拷贝以下内容。</p>
+<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;bean demo&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;jsp:useBean id=&quot;website&quot; class=&quot;<a href="http://io.github.abbottkilig.WebSite" class="test test-url" target="_blank" rel="noopener noreferrer">io.github.abbottkilig.WebSite</a>&quot; scope=&quot;page&quot;&gt;&lt;/jsp:useBean&gt;
+
+&lt;jsp:setProperty property=&quot;url&quot; name=&quot;website&quot; value=&quot;<a href="http://abbottkilig.github.io" class="test test-url" target="_blank" rel="noopener noreferrer">abbottkilig.github.io</a>&quot;/&gt;
+
+&lt;jsp:getProperty property=&quot;url&quot; name=&quot;website&quot;/&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p>上面的JSP代码中，分别采用了useBean创建WebSite实例，setProperty设置实例属性，getProperty属性获取实例属性。这两个方法的底层实际上是调用Bean结构的set和get方法来完成的。</p>
+<h2 id="4-4-param指令"><a href="#4-4-param指令" class="headerlink" title="4.4 param指令"></a>4.4 param指令</h2><p>param指令在之前的几个小节已经都有使用到，其作用是设置参数值并其他指令使用，其语法格式如下。</p>
+<pre><code>&lt;jsp:param name=&quot;propertyName&quot; value=&quot;propertyValue&quot;/&gt;</code></pre><p>当结合include指令时，用于将参数值传入到被导入的页面。</p>
+<p>当结合forward指令使用时，用于将参数值传入被转向的页面。</p>
+<h2 id="4-5-plugin指令"><a href="#4-5-plugin指令" class="headerlink" title="4.5 plugin指令"></a>4.5 plugin指令</h2><p>plugin指令用于下载服务端的Bean或Applet在客户端执行，因此，需要客户端必须安装Java虚拟机。受限于这种情况，近年来几乎对此少有实际应用的案例，故此不再做介绍</p>
+<h1 id="5-JSP内置对象"><a href="#5-JSP内置对象" class="headerlink" title="5. JSP内置对象"></a>5. JSP内置对象</h1><p>JSP默认还有9个内置对象，且这9个对象都是ServletAPI接口的实例，JSP在_jspService()方法中对这些对象实例进行了默认初始化操作，因此，可以直接使用。</p>
+<p>打开任意一个jsp页面生成的Java文件，都可以看到_jspService()方法大致如下的内容：</p>
+<pre><code>public void _jspService(final javax.servlet.http.HttpServletRequest request, final javax.servlet.http.HttpServletResponse response)
+  throws <a href="http://java.io.IOException" class="test test-url" target="_blank" rel="noopener noreferrer">java.io.IOException</a>, javax.servlet.ServletException {
+
+if (!javax.servlet.DispatcherType.ERROR.equals(request.getDispatcherType())) {
+  final java.lang.String _jspx_method = request.getMethod();
+  if (&quot;OPTIONS&quot;.equals(_jspx_method)) {
+    response.setHeader(&quot;Allow&quot;,&quot;GET, HEAD, POST, OPTIONS&quot;);
+    return;
+  }
+  if (!&quot;GET&quot;.equals(_jspx_method) &amp;&amp; !&quot;POST&quot;.equals(_jspx_method) &amp;&amp; !&quot;HEAD&quot;.equals(_jspx_method)) {
+    response.setHeader(&quot;Allow&quot;,&quot;GET, HEAD, POST, OPTIONS&quot;);
+    response.sendError(HttpServletResponse.SC_METHOD_NOT_ALLOWED, &quot;JSP 只允许 GET、POST 或 HEAD。Jasper 还允许 OPTIONS&quot;);
+    return;
+  }
+}
+
+final javax.servlet.jsp.PageContext pageContext;
+javax.servlet.http.HttpSession session = null;
+final javax.servlet.ServletContext application;
+final javax.servlet.ServletConfig config;
+javax.servlet.jsp.JspWriter out = null;
+final java.lang.Object page = this;
+javax.servlet.jsp.JspWriter _jspx_out = null;
+javax.servlet.jsp.PageContext _jspx_page_context = null;
+
+
+try {
+  response.setContentType(&quot;text/html; charset=UTF-8&quot;);
+  pageContext = _jspxFactory.getPageContext(this, request, response,
+              null, true, 8192, true);
+  _jspx_page_context = pageContext;
+  application = pageContext.getServletContext();
+  config = pageContext.getServletConfig();
+  session = pageContext.getSession();
+  out = pageContext.getOut();
+  _jspx_out = out;</code></pre><p>依次对上面提到的对象进行介绍。</p>
+<ul>
+<li>request：service()方法的参数之一，是javax.servlet.http.HttpServletRequest类的实例，是对一次页面请求的封装，客户端的请求参数都被封装在此对象里。如图5-1所示，显示了其常用方法。</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/2019092408461526.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTAxNjY0MDQ=,size_16,color_FFFFFF,t_70" alt="图5-1"></p>
+<ul>
+<li>response：service()方法的参数之一，是javax.servlet.http.HttpServletResponse类的实例，代表服务器对客户端的响应，一般很少使用该对象直接响应，而是采用out输出对象。response常用语重定向，常用方法如图5-2所示</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20190924084645114.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTAxNjY0MDQ=,size_16,color_FFFFFF,t_70" alt="图5-2"></p>
+<ul>
+<li>pageContext：javax.servlet.jsp.PageContext实例对象，代表JSP页面的上下文信息，可以访问页面的共享数据，常用方法有getServletContext()和getServletConfig()</li>
+<li>page：代表页面本身，代码中直接指定为this对象自身。</li>
+<li>session：javax.servlet.http.HttpSession类实例对象，代表一次会话信息。当客户端与服务器建立连接时，会话开始；客户端关闭时，会话结束。</li>
+<li>config：javax.servlet.ServletConfig类对象实例，代表了JSP的配置信息。</li>
+<li>application：javax.servlet.ServletContext类对象实例，代表了JSP所属的Web应用本身，可用于在Servlet之间交换信息。</li>
+<li>out：javax.servlet.jsp.JspWriter类对象实例，代表JSP页面的输出流，形成HTML页面。</li>
+<li>exception：javax.servlet.ServletException异常类对象实例，代表页面中的异常和错误信息。</li>
+</ul>
+<p>通过上面的代码及变量分析可以看出，这些内置对象均为JSP内置对象的形参或者局部变量，因此可以直接在JSP脚本中使用这些对象，无需进行创建。</p>
+<h2 id="5-1-request对象"><a href="#5-1-request对象" class="headerlink" title="5.1 request对象"></a>5.1 request对象</h2><p>request对象是JSP最重要的对象之一，每个request封装了用户的一次请求操作，所有的请求参数也都被封装在request对象中。接下来将分别介绍如何获取请求的信息。</p>
+<h3 id="5-1-1-获取请求头-参数信息"><a href="#5-1-1-获取请求头-参数信息" class="headerlink" title="5.1.1 获取请求头/参数信息"></a>5.1.1 获取请求头/参数信息</h3><p>浏览器访问服务器，会携带一些请求信息，包括浏览器自身信息、cookies、session，请求参数等等。而服务端服务获得这些参数的就是JSP或Servlet实例中的request变量。request是HttpServletRequest接口的实例，提供的方法在前面提供的图5-1所示。</p>
+<p>客户端的请求有两种方式：</p>
+<ul>
+<li><p>get方式：直接在浏览器地址栏里将请求参数的名称和值转换为字符串，附加在原URL之后，可以直接在地址栏看到请求的参数名和值，且get请求对请求的的数据量大小有限制。</p>
+</li>
+<li><p>post请求：通过提交表单来发送数据，相比get请求，post请求传递的参数大小不受限制，而且请求参数的值放在HTML HEADER中传输，用户无法看到请求参数，安全性相对较高。</p>
+</li>
+</ul>
+<p>作为示例，在demo工程下新建form.jsp文件，拷贝以下内容：</p>
+<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;form action=&quot;request.jsp&quot;, method=&quot;post&quot;&gt;
+website:&lt;input type=&quot;text&quot; name=&quot;website&quot;&gt;&lt;br&gt;
+author:&lt;input type=&quot;text&quot; name=&quot;author&quot;&gt;&lt;br&gt;
+gender:&lt;br&gt;
+male:&lt;input type=&quot;radio&quot; name=&quot;gender&quot; value=&quot;male&quot;&gt;
+female:&lt;input type=&quot;radio&quot; name=&quot;gender&quot; value=&quot;female&quot;&gt;
+&lt;br&gt;
+&lt;input type=&quot;submit&quot; value=&quot;submit&quot;&gt;
+&lt;input type=&quot;reset&quot; value=&quot;reset&quot;&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p>代码中，设置了表单的action是request.jsp，请求方式是post，点击<code>submit</code>提交之后，request.jsp页面可以通过request对象的getParameter()方法获取。因此，新建request.jsp，拷贝以下代码：</p>
+<pre><code>&lt;%@page import=&quot;java.util.Enumeration&quot;%&gt;
+&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;request demo&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+
+&lt;%-- get header information --%&gt;
+&lt;%
+
+Enumeration&lt;String&gt; headerNames = request.getHeaderNames();
+while(headerNames.hasMoreElements()){
+    String headerName = headerNames.nextElement();
+    out.println(headerName + &quot;--&gt;&quot; + request.getHeader(headerName) + &quot;&lt;br&gt;&quot;);
+}
+
+%&gt;
+
+
+&lt;%-- get the value of form  --%&gt;
+&lt;%
+String website = request.getParameter(&quot;website&quot;);
+String author = request.getParameter(&quot;author&quot;);
+String gender = request.getParameter(&quot;gender&quot;);
+%&gt;
+
+website: &lt;%= website %&gt;&lt;br&gt;
+author:&lt;%= author %&gt;&lt;br&gt;
+gender:&lt;%=gender %&gt;&lt;br&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p>浏览器访问<a href="http://localhost/demo/form.jsp" target="_blank" rel="noopener">http://localhost/demo/form.jsp</a>在各个输入域内输入对应的value值，单机<code>submit</code>提交按钮，会自动跳转到request.jsp页面并显示如图5-1所示内容：</p>
+<p><img src="https://img-blog.csdnimg.cn/20190924110412673.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTAxNjY0MDQ=,size_16,color_FFFFFF,t_70" alt="图5-1"></p>
+<p>当我们将form.jsp表单的请求方式替换为get请求时，可以浏览器的地址栏变为了<code><a href="http://localhost/demo/request.jsp?website=abbottkilig.github.io&author=abbottkilig&gender=male" class="test test-url" target="_blank" rel="noopener noreferrer">http://localhost/demo/request.jsp?website=abbottkilig.github.io&amp;author=abbottkilig&amp;gender=male</a></code>说明，get请求采用了明文的方式携带了请求参数。</p>
+<h3 id="5-1-2-操作request范围内属性"><a href="#5-1-2-操作request范围内属性" class="headerlink" title="5.1.2 操作request范围内属性"></a>5.1.2 操作request范围内属性</h3><p>HttpServletRequest还包含了两个方法用来设置和获取request范围内的属性</p>
+<ul>
+<li>setAttribute(String name, Object object):设置属性值</li>
+<li>getAttribute(String name)获取属性值。</li>
+</ul>
+<p>request设置属性值，常用语forward操作。接下来，以具体的示例说明其用法。</p>
+<p>修改demo工程下的request.jsp文件，拷贝内容如下：</p>
+<pre><code>&lt;%@page import=&quot;java.util.Enumeration&quot;%&gt;
+&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;request demo&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;%-- set Attribute --%&gt;
+&lt;%
+request.setAttribute(&quot;date&quot;, &quot;ceate date: 2019-9-22&quot;);
+%&gt;
+&lt;%-- forward request  --%&gt;
+&lt;jsp:forward page=&quot;requestAtt.jsp&quot;&gt;&lt;/jsp:forward&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p>同时，新建requestAtt.jsp文件，拷贝如下内容：</p>
+<pre><code>&lt;%@page import=&quot;java.util.Enumeration&quot;%&gt;
+&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;request demo&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+
+&lt;%-- get header information --%&gt;
+&lt;%
+
+Enumeration&lt;String&gt; headerNames = request.getHeaderNames();
+while(headerNames.hasMoreElements()){
+    String headerName = headerNames.nextElement();
+    out.println(headerName + &quot;--&gt;&quot; + request.getHeader(headerName) + &quot;&lt;br&gt;&quot;);
+}
+
+%&gt;
+
+
+&lt;%-- get the value of form  --%&gt;
+&lt;%
+String website = request.getParameter(&quot;website&quot;);
+String author = request.getParameter(&quot;author&quot;);
+String gender = request.getParameter(&quot;gender&quot;);
+%&gt;
+
+website: &lt;%= website %&gt;&lt;br&gt;
+author:&lt;%= author %&gt;&lt;br&gt;
+gender:&lt;%=gender %&gt;&lt;br&gt;
+
+&lt;%--- get Attribute --%&gt;
+&lt;% 
+String date = (String)request.getAttribute(&quot;date&quot;);
+%&gt;
+date:&lt;%= date %&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p>浏览器访问<a href="http://localhost/demo/form.jsp" target="_blank" rel="noopener">http://localhost/demo/form.jsp</a>，如图5-2所示，可以看到，能够正确的显示在request.jsp页面被添加的date属性信息。</p>
+<p><img src="https://img-blog.csdnimg.cn/2019092411221895.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTAxNjY0MDQ=,size_16,color_FFFFFF,t_70" alt="图5-2"></p>
+<h2 id="5-2-response对象"><a href="#5-2-response对象" class="headerlink" title="5.2 response对象"></a>5.2 response对象</h2><p>response代表服务器的对客户端的响应。因为已经有了out对象用于输出，所以在JSP中使用场景较少。但是，out是writer类，只能输出字符流，对于非字符流，则只能采用response作为响应。</p>
+<h3 id="5-2-1-response非字符响应"><a href="#5-2-1-response非字符响应" class="headerlink" title="5.2.1 response非字符响应"></a>5.2.1 response非字符响应</h3><p>对于非字符串响应，应该使用response来响应客户端的请求。</p>
+<p>作为示例，在demo工程中新建response.jsp文件，来响应客户端的请求返回一张图片。</p>
+<pre><code>&lt;%@page import=&quot;<a href="http://java.io.File" class="test test-url" target="_blank" rel="noopener noreferrer">java.io.File</a>&quot;%&gt;
+&lt;%@page import=&quot;java.awt.image.BufferedImage&quot;%&gt;
+&lt;%@page import=&quot;javax.imageio.ImageReader&quot;%&gt;
+&lt;%@page import=&quot;javax.imageio.ImageIO&quot;%&gt;
+&lt;%@page import=&quot;javax.imageio.ImageWriter&quot;%&gt;
+&lt;%@ page language=&quot;java&quot; contentType=&quot;image/png&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;%@ page import=&quot;java.awt.*&quot; %&gt;
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;%
+File file = new File(&quot;D:\\word.png&quot;);
+BufferedImage bi = <a href="http://ImageIO.read" class="test test-url" target="_blank" rel="noopener noreferrer">ImageIO.read</a>(file);
+ImageIO.write(bi, &quot;png&quot;, response.getOutputStream());
+
+%&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p>通过浏览器访问<a href="http://localhost/demo/response.jsp" target="_blank" rel="noopener">http://localhost/demo/response.jsp</a>可以看到浏览器打开了服务器端返回的图片。</p>
+<h3 id="5-2-2-重定向"><a href="#5-2-2-重定向" class="headerlink" title="5.2.2 重定向"></a>5.2.2 重定向</h3><p>response还可以用于重定向，但是与forward不同的是，重定向会失去所有的请求参数和request范围的属性，response请求重定向将属于二次请求。</p>
+<p>作为示例，在demo工程下修改response.jsp文件，复制以下内容：</p>
+<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;image/png&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;%@ page import=&quot;java.awt.*&quot; %&gt;
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;%
+
+response.sendRedirect(&quot;doResponse.jsp&quot;);
+
+%&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p>同时，新建文件doResponse.jsp文件，拷贝以下内容：</p>
+<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+
+重定向name参数值：&lt;%= request.getParameter(&quot;name&quot;) %&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p>浏览器输入带有请求参数的链接<a href="http://localhost/demo/response.jsp?name=abbottkilig" target="_blank" rel="noopener">http://localhost/demo/response.jsp?name=abbottkilig</a>，将看到如图5-3所显示的内容</p>
+<p><img src="https://img-blog.csdnimg.cn/20190924151617262.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTAxNjY0MDQ=,size_16,color_FFFFFF,t_70" alt="图5-3"></p>
+<p>说明response重定向没有将请求参数有效的传递给被定向的链接。</p>
+<h3 id="5-2-3-Cookie"><a href="#5-2-3-Cookie" class="headerlink" title="5.2.3 Cookie"></a>5.2.3 Cookie</h3><p>cookie用于网站记录客户的信息，一旦客户再次登录网站，就可以获取之前记录的客户相关信息了。除非超过cookie生命周期，否则cookie会一直存放在客户端机器上。</p>
+<p>增加cookie功能也是response来完成的。为了能够更加深入的了解cookie，这里以具体的jsp文件为例，来展示cookie的用法。</p>
+<p>在demo工程下新建cookie.jsp文件，复制以下内容：</p>
+<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;%
+String website = request.getParameter(&quot;website&quot;);
+Cookie c = new Cookie(&quot;website&quot;, website);
+c.setMaxAge(24* 3600);
+response.addCookie(c);
+
+%&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><blockquote>
+<p>所有的cookie对象都需要设置其生存周期，否则当页面关闭时，cookie将消失。</p>
+</blockquote>
+<p>如果浏览器没有禁止cookie，则在浏览器访问<a href="http://localhost/demo/cookie.jsp?website=abbottkilig.github.io" target="_blank" rel="noopener">http://localhost/demo/cookie.jsp?website=abbottkilig.github.io</a>时，客户端会保存一个名为website的cookie，直至超出cookie的生存周期。</p>
+<p>可以采用request对象提供的getCookies()方法访问客户端的cookie，该方法能够返回存储在机器上的cookie的数组。</p>
+<p>在demo工程下新建requestCookie.jsp文件，复制以下内容：</p>
+<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;%
+
+Cookie[] cookies = request.getCookies();
+
+for(Cookie c : cookies)
+{
+    if(c.getName().equals(&quot;website&quot;))
+        out.println(c.getValue());
+}
+%&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p>当浏览器访问<a href="http://localhost/demo/requestCookie.jsp" target="_blank" rel="noopener">http://localhost/demo/requestCookie.jsp</a>,<a href="http://将看到页面显示之前存储的website的cookie值abbottkilig.github.io" class="test test-url" target="_blank" rel="noopener noreferrer">将看到页面显示之前存储的website的cookie值abbottkilig.github.io</a>。</p>
+<h2 id="5-3-application对象"><a href="#5-3-application对象" class="headerlink" title="5.3 application对象"></a>5.3 application对象</h2><p>application对象代表了Web应用本身，可以采用此对象来操作Web应用相关的数据，通常有如下两个作用。</p>
+<ul>
+<li>在Web应用的多个JSP、Servlet之间共享数据</li>
+<li>访问Web应用的配置参数</li>
+</ul>
+<p>如图5-4所示，显示了其提供的方法</p>
+<p><img src="https://img-blog.csdnimg.cn/20190924091024237.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTAxNjY0MDQ=,size_16,color_FFFFFF,t_70" alt="图5-4"></p>
+<h3 id="5-4-1-多个JSP、Servlet之间共享数据"><a href="#5-4-1-多个JSP、Servlet之间共享数据" class="headerlink" title="5.4.1 多个JSP、Servlet之间共享数据"></a>5.4.1 多个JSP、Servlet之间共享数据</h3><p>application可以通过setAttribute(String name, Object object)方法将一个值设置成对整个Web应用都有效的属性，其他Servlet都可以通过getAttribute(String name)获取属性的实际值。</p>
+<p>作为实例，在demo工程下新建setApplication.jsp文件，拷贝如下代码：</p>
+<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;JSP入门&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;%!
+int i = 0;
+%&gt;
+&lt;% 
+i++;
+application.setAttribute(&quot;&quot;, String.valueOf(i));
+%&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p>同时，新建getApplication.jsp文件，拷贝以下内容：</p>
+<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;JSP getApplication&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+
+&lt;%=application.getAttribute(&quot;value&quot;)%&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p>在浏览器中多次访问<a href="http://localhost/demo/setApplication.jsp" target="_blank" rel="noopener">http://localhost/demo/setApplication.jsp</a>,可以从链接<a href="http://localhost/demo/getApplication.jsp" target="_blank" rel="noopener">http://localhost/demo/getApplication.jsp</a>查看到总共发生了多少次的访问请求。因此，针对application的设置可以查看整个应用的访问情况。</p>
+<h3 id="5-4-2-获取Web应用配置参数"><a href="#5-4-2-获取Web应用配置参数" class="headerlink" title="5.4.2 获取Web应用配置参数"></a>5.4.2 获取Web应用配置参数</h3><p>application还可以用来获取Web应用的配置参数，接下来，我们修改demo工程下的dao.jsp文件，拷贝以下内容：</p>
+<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+pageEncoding=&quot;UTF-8&quot;%&gt;
+
+&lt;%@ page errorPage=&quot;errorPage.jsp&quot;%&gt;
+
+&lt;%@ page import=&quot;java.sql.*&quot; %&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;dao page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;% 
+
+String driver = application.getInitParameter(&quot;driver&quot;);
+String url = application.getInitParameter(&quot;url&quot;);
+String username = application.getInitParameter(&quot;username&quot;);
+String password = application.getInitParameter(&quot;password&quot;);
+Class.forName(driver);
+Connection conn = DriverManager.getConnection(url,username,password);
+
+PreparedStatement ps = conn.prepareStatement(&quot;select * from emoji&quot;);
+ResultSet rs = ps.executeQuery();
+while (rs.next()) {
+    out.println(rs.getString(1) );
+}
+conn.close();
+%&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;  </code></pre><p>代码中使用application的getInitParameter(String paramName)来获取Web应用的配置参数，这些参数放置在web.xml文件中的context-param元素配置中，以下显示了context-param的在web.xml中的配置信息</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;web-app xmlns:xsi=&quot;<a href="http://www.w3.org/2001/XMLSchema-instance" class="test test-url" target="_blank" rel="noopener noreferrer">http://www.w3.org/2001/XMLSchema-instance</a>&quot; xmlns=&quot;<a href="http://java.sun.com/xml/ns/javaee" class="test test-url" target="_blank" rel="noopener noreferrer">http://java.sun.com/xml/ns/javaee</a>&quot; xsi:schemaLocation=&quot;<a href="http://java.sun.com/xml/ns/javaee" class="test test-url" target="_blank" rel="noopener noreferrer">http://java.sun.com/xml/ns/javaee</a> <a href="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" class="test test-url" target="_blank" rel="noopener noreferrer">http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd</a>&quot; id=&quot;WebApp_ID&quot; version=&quot;3.0&quot;&gt;
+  &lt;display-name&gt;demo&lt;/display-name&gt;
+
+
+  &lt;context-param&gt;
+      &lt;param-name&gt;driver&lt;/param-name&gt;
+      &lt;param-value&gt;com.mysql.cj.jdbc.Driver&lt;/param-value&gt;
+  &lt;/context-param&gt;
+
+  &lt;context-param&gt;
+      &lt;param-name&gt;username&lt;/param-name&gt;
+      &lt;param-value&gt;root&lt;/param-value&gt;
+  &lt;/context-param&gt;
+
+  &lt;context-param&gt;
+      &lt;param-name&gt;password&lt;/param-name&gt;
+      &lt;param-value&gt;<a href="mailto:71939224@qq.com" class="test test-email" target="_blank" rel="noopener noreferrer">71939224@qq.com</a>&lt;/param-value&gt;
+  &lt;/context-param&gt;
+
+  &lt;context-param&gt;
+      &lt;param-name&gt;url&lt;/param-name&gt;
+      &lt;param-value&gt;jdbc:<a href="mysql://localhost:3306/wechat?useSSL=false&&allowPublicKeyRetrieval=true&&serverTimezone=UTC" class="test test-url" target="_blank" rel="noopener noreferrer">mysql://localhost:3306/wechat?useSSL=false&amp;&amp;allowPublicKeyRetrieval=true&amp;&amp;serverTimezone=UTC</a>&lt;/param-value&gt;
+  &lt;/context-param&gt;
+
+
+
+  &lt;welcome-file-list&gt;
+    &lt;welcome-file&gt;index.html&lt;/welcome-file&gt;
+    &lt;welcome-file&gt;index.htm&lt;/welcome-file&gt;
+    &lt;welcome-file&gt;index.jsp&lt;/welcome-file&gt;
+    &lt;welcome-file&gt;default.html&lt;/welcome-file&gt;
+    &lt;welcome-file&gt;default.htm&lt;/welcome-file&gt;
+    &lt;welcome-file&gt;default.jsp&lt;/welcome-file&gt;
+  &lt;/welcome-file-list&gt;
+&lt;/web-app&gt;</code></pre><p>在浏览器中访问<a href="http://localhost/demo/dao.jsp" target="_blank" rel="noopener">http://localhost/demo/dao.jsp</a>可以看到正常数据库查询输出，表明application可以访问Web应用的配置参数。</p>
+<blockquote>
+<p>将配置信息放在web.xml文件中配置，避免硬编码写代码，可以更好的提高程序的移植性。</p>
+</blockquote>
+<h2 id="5-5-config对象"><a href="#5-5-config对象" class="headerlink" title="5.5 config对象"></a>5.5 config对象</h2><p>config对象代表了当前JSP的配置信息，但JSP页面一般无需配置，因此就不存在配置信息。但是JSP本质就是一个Servlet，因此可以在web.xml文件中对JSP信息进行参数配置。然后通过Servlet来进行访问，Servlet的讲解将放在Servlet章节进行介绍。</p>
+<h2 id="5-6-pageContext对象"><a href="#5-6-pageContext对象" class="headerlink" title="5.6 pageContext对象"></a>5.6 pageContext对象</h2><p>pageContext是javax.servlet.jsp.PageContext的实例，代表页面的上下文，从第五节一开始的jsp生成的java代码中就可以看出，可以通过pageContext访问page,request,session,application范围内的变量。</p>
+<p>在demo工程下新建pageContext.jsp页面，复制下面展示了这种具体范围相关的变量操作的代码。</p>
+<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+
+&lt;%
+pageContext.setAttribute(&quot;page&quot;, &quot;hello&quot;);
+pageContext.setAttribute(&quot;request&quot;, &quot;hello&quot;, PageContext.REQUEST_SCOPE);
+pageContext.setAttribute(&quot;session&quot;, &quot;hello&quot;, PageContext.SESSION_SCOPE);
+pageContext.setAttribute(&quot;application&quot;, &quot;hello&quot;, PageContext.APPLICATION_SCOPE);
+
+out.println(&quot;request:&quot; + request.getAttribute(&quot;request&quot;) + &quot;&lt;br&gt;&quot;);
+out.println(&quot;session:&quot; + session.getAttribute(&quot;session&quot;) + &quot;&lt;br&gt;&quot;);
+out.println(&quot;application:&quot; + application.getAttribute(&quot;application&quot;) + &quot;&lt;br&gt;&quot;);
+out.println(&quot;page:&quot; + pageContext.getAttribute(&quot;page&quot;) + &quot;&lt;br&gt;&quot;);
+
+
+%&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p>如图5-5所示，显示了浏览器请求<a href="http://localhost/demo/pageContext.jsp" target="_blank" rel="noopener">http://localhost/demo/pageContext.jsp</a>之后的结果，这说明pageContext能够操作page,request,session,application范围内的变量。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190924164128805.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTAxNjY0MDQ=,size_16,color_FFFFFF,t_70" alt="图5-5"></p>
+<h2 id="5-7-session对象"><a href="#5-7-session对象" class="headerlink" title="5.7 session对象"></a>5.7 session对象</h2><p>session对象代表一次用户会话，通常用户跟踪用户的会话信息，如判断用户是否登录系统，或在购物车应用中，跟踪用户购买的商品等。</p>
+<p>session正是因为在一次会话范围内有效，所以session范围内的属性可以在多个页面的跳转之间共享。但是，一旦关闭浏览器结束session会话，session范围内的属性将全部丢失。</p>
+<p>session对象是HttpSession的实例，有以下两个常用的方法：</p>
+<ul>
+<li>setAttribute(String name, Object object)：设置session范围内name属性的值为object。</li>
+<li>getAttribute(String name)：返回session范围内name属性的值。</li>
+</ul>
+<p>作为示例，在demo工程下新建shop.jsp文件，拷贝以下内容：</p>
+<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;form action=&quot;session.jsp&quot;, method=&quot;post&quot; &gt;
+book:&lt;input type=&quot;checkbox&quot; name=&quot;item&quot; value=&quot;book&quot;&gt; &lt;br&gt;
+computer:&lt;input type=&quot;checkbox&quot; name=&quot;item&quot; value=&quot;computer&quot;&gt; &lt;br&gt;
+car:&lt;input type=&quot;checkbox&quot; name=&quot;item&quot; value=&quot;car&quot;&gt; &lt;br&gt;
+&lt;input type=&quot;submit&quot; value=&quot;purchase&quot;&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p>页面包含了有三个复选按钮的表单，用于选择想要购买的物品，action响应由session.jsp页面处理，其页面代码如下：</p>
+<pre><code>&lt;%@page import=&quot;java.util.HashMap&quot;%&gt;
+&lt;%@page import=&quot;java.util.Map&quot;%&gt;
+&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;%--- init or get item in session scope --%&gt;
+&lt;%
+Map&lt;String, Integer&gt; itemMap =  (Map&lt;String, Integer&gt;)session.getAttribute(&quot;itemMap&quot;);
+
+if(itemMap == null)    
+{
+    itemMap = new HashMap&lt;String, Integer&gt;();
+}
+%&gt;
+
+
+&lt;%
+
+String[] buys = request.getParameterValues(&quot;item&quot;);
+for(String item: buys)
+{
+    if(&quot;book&quot;.equals(item))
+        itemMap.put(&quot;book&quot;, itemMap.getOrDefault(&quot;book&quot;, 0) + 1);
+    if(&quot;computer&quot;.equals(item))
+        itemMap.put(&quot;computer&quot;, itemMap.getOrDefault(&quot;computer&quot;, 0) + 1);
+    if(&quot;car&quot;.equals(item))
+        itemMap.put(&quot;car&quot;, itemMap.getOrDefault(&quot;car&quot;, 0) + 1);
+}
+
+session.setAttribute(&quot;itemMap&quot;, itemMap);
+%&gt;
+
+shop:
+book: &lt;%= itemMap.getOrDefault(&quot;book&quot;, 0) %&gt;&lt;br&gt;
+computer:&lt;%= itemMap.getOrDefault(&quot;computer&quot;, 0) %&gt;&lt;br&gt;
+car:&lt;%= itemMap.getOrDefault(&quot;car&quot;, 0) %&gt;&lt;br&gt;
+
+&lt;hr&gt;
+&lt;a href=&quot;shop.jsp&quot;&gt;purchase again&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p>浏览器访问<a href="http://localhost/demo/shop.jsp" target="_blank" rel="noopener">http://localhost/demo/shop.jsp</a>添加购买的物品，可以看到类似如图-5所显示的购买内容。只要浏览器不关闭，该信息就不会丢失。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190924161310719.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTAxNjY0MDQ=,size_16,color_FFFFFF,t_70" alt="图5-6"></p>
+<blockquote>
+<p>session机制通常用于保存客户端的状态信息，为了能够保存这样的状态信息，所以要求session里面的属性值是必须可序列化的。</p>
+</blockquote>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 <a href="mailto:jaytp@qq.com" class="test test-email" target="_blank" rel="noopener noreferrer">jaytp@qq.com</a> </span>
+    </div>
+</article>
+
+
+<p>
+    <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>JSP简介</p>
+    
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="AbbottKilig">AbbottKilig</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-09-23, 08:43:06</p>
+    <p><span class="copy-title">最后更新:</span>2019-09-24, 16:43:13</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/JavaEE/JSP简介/" title="JSP简介">http://AbbottKilig.github.io/JavaEE/JSP简介/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 abbottkilig</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['<a href="https://instagram.com/explore/tags/Web" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#Web</a>','<a href="https://instagram.com/explore/tags/Tomcat" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#Tomcat</a>','<a href="https://instagram.com/explore/tags/Java" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#Java</a>','<a href="https://instagram.com/explore/tags/JSP" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#JSP</a>',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("<a href="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" class="test test-url" target="_blank" rel="noopener noreferrer">busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js</a>");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid <a href="https://instagram.com/explore/tags/e2dede" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#e2dede</a>;
+        background: <a href="https://instagram.com/explore/tags/FFF" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#FFF</a>;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid <a href="https://instagram.com/explore/tags/C3CCD0" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#C3CCD0</a>;
+        text-align: right;
+        color: <a href="https://instagram.com/explore/tags/AAA" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#AAA</a>;
+        background-color: <a href="https://instagram.com/explore/tags/fafafa" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#fafafa</a>;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list <a href="https://instagram.com/explore/tags/local" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#local</a>-search-result a .post-title {
+        color: <a href="https://instagram.com/explore/tags/383636" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#383636</a>;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list <a href="https://instagram.com/explore/tags/local" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#local</a>-search-result a .post-date {
+        color: <a href="https://instagram.com/explore/tags/5e5e5f" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#5e5e5f</a>;
+    }
+    
+    
+    .nav-right nav a.hover, <a href="https://instagram.com/explore/tags/local" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#local</a>-search-result a.hover{
+        background-color: <a href="https://instagram.com/explore/tags/e2e0e0" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#e2e0e0</a>;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: <a href="https://instagram.com/explore/tags/e2dede" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#e2dede</a> solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("<a href="https://i.loli.net/2019/07/22/5d3521411f3f169375.png" class="test test-url" target="_blank" rel="noopener noreferrer">https://i.loli.net/2019/07/22/5d3521411f3f169375.png</a>");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
