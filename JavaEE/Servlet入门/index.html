@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>Servlet入门 | AbbottKilig&#39;s blog</title>
+  <meta name="keywords" content=" Web , Java ">
+  <meta name="description" content="Servlet入门 | AbbottKilig&#39;s blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="AbbottKilig&apos;s blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="about">
+<meta property="og:url" content="http://AbbottKilig.github.io/about/index.html">
+<meta property="og:site_name" content="AbbottKilig&#39;s blog">
+<meta property="og:description" content="AbbottKilig&apos;s blog">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-23T00:26:00.125Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="about">
+<meta name="twitter:description" content="AbbottKilig&apos;s blog">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+<script src="/js/iconfont.js?v=1.0.1"></script>
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value>
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>AbbottKilig</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="rss" href="/atom.xml" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="github" href="https://github.com/abbottkilig" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        <a title="email" href="mailto:abbottkilig@163.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=872336115&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(5)</small></div></li>
+    
+        
+            
+            <li><div data-rel="JavaEE">JavaEE<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="5">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Web</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Tomcat</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Java</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">JSP</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class=""
+           href="/JavaEE/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2019-09-23 08:26:00">2019/09/23</span>
+        </a>
+        
+        <a  class="JavaEE "
+           href="/JavaEE/手动构建Web应用/"
+           data-tag="Web"
+           data-author="" >
+            <span class="post-title" title="手动构建Web应用">手动构建Web应用</span>
+            <span class="post-date" title="2019-09-21 19:57:50">2019/09/21</span>
+        </a>
+        
+        <a  class="JavaEE "
+           href="/JavaEE/Tomcat安装与配置/"
+           data-tag="Web,Tomcat,Java"
+           data-author="" >
+            <span class="post-title" title="Tomcat安装与配置">Tomcat安装与配置</span>
+            <span class="post-date" title="2019-09-21 12:16:41">2019/09/21</span>
+        </a>
+        
+        <a  class="JavaEE "
+           href="/JavaEE/Servlet入门/"
+           data-tag="Web,Java"
+           data-author="" >
+            <span class="post-title" title="Servlet入门">Servlet入门</span>
+            <span class="post-date" title="2019-09-24 20:15:13">2019/09/24</span>
+        </a>
+        
+        <a  class="JavaEE "
+           href="/JavaEE/JSP简介/"
+           data-tag="Web,JSP"
+           data-author="" >
+            <span class="post-title" title="JSP简介">JSP简介</span>
+            <span class="post-date" title="2019-09-23 08:43:06">2019/09/23</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-Servlet入门" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Servlet入门</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="JavaEE">JavaEE</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color4">Web</a>
+            
+            <a href="javascript:" class="color5">Java</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-09-25 15:28:50'>2019-09-24 20:15</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Servlet开发"><span class="toc-text">1. Servlet开发</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Servlet配置"><span class="toc-text">2. Servlet配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Servlet参数配置"><span class="toc-text">3. Servlet参数配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-配置参数"><span class="toc-text">3.1 配置参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-访问参数"><span class="toc-text">3.2 访问参数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-Servlet生命周期"><span class="toc-text">4. Servlet生命周期</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-Servlet控制器"><span class="toc-text">5. Servlet控制器</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在JSP入门章节讲到，JSP的本质就是Servlet,Web应用的JSP页面将被自动编译成Servlet类的Java文件。但是通过大量的示例也看到，直接使用Servlet来生成页面的时，所有的HTML标签都需要采用Servlet的out输出流来输出，控制页面格式将变得极其繁琐。而且JSP的开发是一般由程序员完成，美工很难参与到Servlet的开发过程中，这阻碍了JSP作为表现层的使用。</p>
+<p>随着MVC规范的推出，Servlet的责任逐渐得到了明确，仅仅作为控制器来使用，不需要再用作视图层来使用。</p>
+<h1 id="1-Servlet开发"><a href="#1-Servlet开发" class="headerlink" title="1. Servlet开发"></a>1. Servlet开发</h1><p>编写Servlet必须继承HttpServlet类。如图1-1显示了HttpServlet的继承关系。其中，Servlet提供了以下几种方法用于响应客户的请求。</p>
+<ul>
+<li>doGet():响应客户端的get请求</li>
+<li>doPost():响应客户端的post请求</li>
+<li>doPut():响应客户端的put请求</li>
+<li>doDelete():响应客户端的delete请求</li>
+<li>doOptions():响应客户端的options请求</li>
+<li>doTrace():响应客户端的trace请求</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20190925084259896.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTAxNjY0MDQ=,size_16,color_FFFFFF,t_70" alt="图1-1"></p>
+<p>在实际应用中，客户端的请求通常只有get和post两种，Servlet为了实现自己的响应逻辑，必须重写doGet()和doPost()两个方法。但是，对于Servlet来讲，绝大多数的请求的响应逻辑是一致的。因此，可以重写其中一个方法，另一个方法采用调用的方式来实现逻辑。或者只需重写Service()方法即可完成客户端你的响应。</p>
+<p>此外，HttpServlet还包含两个继承自GenericServlet的重要方法</p>
+<ul>
+<li>init(ServletConfig config):调用该方法初始化Servlet实例</li>
+<li>destory()：该方法被自动调用以销毁servlet实例，回收资源</li>
+</ul>
+<p>通常，不需要重写init()和destory()方法，除非需要在初始化时，完成某些资源的初始化，在销毁Servlet之前回收某些资源。</p>
+<p>接下来，以一个获取用户请求表单的具体示例，看一下Servlet的具体用法。</p>
+<p>在demo工程下的WEB-INF/classes目录下，新建io/github/abbottkilig/servlet路径，在其中新建FormServlet类，拷贝以下内容，并采用javac命令编译为class文件。</p>
+<pre><code>package io.github.abbottkilig.servlet;
+
+import <a href="http://java.io.IOException" class="test test-url" target="_blank" rel="noopener noreferrer">java.io.IOException</a>;
+import <a href="http://java.io.PrintWriter" class="test test-url" target="_blank" rel="noopener noreferrer">java.io.PrintWriter</a>;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class FormServlet extends HttpServlet {
+
+//    
+//    //method 1
+//    @Override
+//    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        String website = req.getParameter(&quot;website&quot;);
+//        String author = req.getParameter(&quot;author&quot;);
+//        String gender = req.getParameter(&quot;gender&quot;);
+//        PrintWriter out = resp.getWriter();
+//        out.print(&quot;&lt;!DOCTYPE html&gt;\n&quot;);
+//          out.print(&quot;&lt;html&gt;\n&quot;);
+//          out.print(&quot;&lt;head&gt;\n&quot;);
+//          out.print(&quot;&lt;meta charset=\&quot;UTF-8\&quot;&gt;\n&quot;);
+//          out.print(&quot;&lt;title&gt;Insert title here&lt;/title&gt;\n&quot;);
+//          out.print(&quot;&lt;/head&gt;\n&quot;);
+//          out.print(&quot;&lt;body&gt;\n&quot;);
+//        out.print(&quot;website:&quot; + website + &quot;&lt;br&gt;\n&quot;);
+//        out.print(&quot;author:&quot; + author + &quot;&lt;br&gt;\n&quot;);
+//        out.print(&quot;gender:&quot; + gender + &quot;&lt;br&gt;\n&quot;);
+//        out.print(&quot;&lt;/body&gt;\n&quot;);
+//          out.print(&quot;&lt;/html&gt;&quot;);
+//          
+//    }
+
+    //method 2
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String website = req.getParameter(&quot;website&quot;);
+        String author = req.getParameter(&quot;author&quot;);
+        String gender = req.getParameter(&quot;gender&quot;);
+        PrintWriter out = resp.getWriter();
+        out.print(&quot;&lt;!DOCTYPE html&gt;\n&quot;);
+          out.print(&quot;&lt;html&gt;\n&quot;);
+          out.print(&quot;&lt;head&gt;\n&quot;);
+          out.print(&quot;&lt;meta charset=\&quot;UTF-8\&quot;&gt;\n&quot;);
+          out.print(&quot;&lt;title&gt;Insert title here&lt;/title&gt;\n&quot;);
+          out.print(&quot;&lt;/head&gt;\n&quot;);
+          out.print(&quot;&lt;body&gt;\n&quot;);
+        out.print(&quot;website:&quot; + website + &quot;&lt;br&gt;\n&quot;);
+        out.print(&quot;author:&quot; + author + &quot;&lt;br&gt;\n&quot;);
+        out.print(&quot;gender:&quot; + gender + &quot;&lt;br&gt;\n&quot;);
+        out.print(&quot;&lt;/body&gt;\n&quot;);
+          out.print(&quot;&lt;/html&gt;&quot;);
+    }
+
+    //method 2
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doGet(req, resp);
+    }
+
+
+}</code></pre><blockquote>
+<p>编译FormServlet需要借助javax.servlet-api-x.x.x包，在WEB-INF/classes目录下采用编译命令为： <code>javac io/github/abbottkilig/servlet/<a href="http://FormServlet.java" class="test test-url" target="_blank" rel="noopener noreferrer">FormServlet.java</a> -cp d:/project/demo/lib/javax.servlet-api-3.0.1.jar</code></p>
+</blockquote>
+<p>代码中的FormServlet继承了HttpServlet类，使其能够作为一个Servlet来单独使用，然后提供了两种方式来响应客户请求：</p>
+<ul>
+<li>方式1：重写service()方法</li>
+<li>方式2：重写doGet()方法，doPost()调用doGet()实现业务逻辑</li>
+</ul>
+<p>之所以能够这么写，是因为继承自HttpServlet的service()方法也是采用判断条件来调用不同的方法来实现对应的响应，此处给出service()的源码：</p>
+<pre><code>protected void service(HttpServletRequest req, HttpServletResponse resp)
+    throws ServletException, IOException
+{
+    String method = req.getMethod();
+
+    if (method.equals(METHOD_GET)) {
+        long lastModified = getLastModified(req);
+        if (lastModified == -1) {
+            // servlet doesn&apos;t support if-modified-since, no reason
+            // to go through further expensive logic
+            doGet(req, resp);
+        } else {
+            long ifModifiedSince = req.getDateHeader(HEADER_IFMODSINCE);
+            if (ifModifiedSince &lt; lastModified) {
+                // If the servlet mod time is later, call doGet()
+                // Round down to the nearest second for a proper compare
+                // A ifModifiedSince of -1 will always be less
+                maybeSetLastModified(resp, lastModified);
+                doGet(req, resp);
+            } else {
+                resp.setStatus(HttpServletResponse.SC_NOT_MODIFIED);
+            }
+        }
+
+    } else if (method.equals(METHOD_HEAD)) {
+        long lastModified = getLastModified(req);
+        maybeSetLastModified(resp, lastModified);
+        doHead(req, resp);
+
+    } else if (method.equals(METHOD_POST)) {
+        doPost(req, resp);
+
+    } else if (method.equals(METHOD_PUT)) {
+        doPut(req, resp);
+
+    } else if (method.equals(METHOD_DELETE)) {
+        doDelete(req, resp);
+
+    } else if (method.equals(METHOD_OPTIONS)) {
+        doOptions(req,resp);
+
+    } else if (method.equals(METHOD_TRACE)) {
+        doTrace(req,resp);
+
+    } else {
+        //
+        // Note that this means NO servlet supports whatever
+        // method was requested, anywhere on this server.
+        //
+
+        String errMsg = lStrings.getString(&quot;http.method_not_implemented&quot;);
+        Object[] errArgs = new Object[1];
+        errArgs[0] = method;
+        errMsg = MessageFormat.format(errMsg, errArgs);
+
+        resp.sendError(HttpServletResponse.SC_NOT_IMPLEMENTED, errMsg);
+    }
+}</code></pre><p>接下来，在web.xml中新增如下的Servlet映射关系：</p>
+<pre><code>&lt;servlet&gt;
+   &lt;servlet-name&gt;FormServlet&lt;/servlet-name&gt;
+   &lt;servlet-class&gt;io.github.abbottkilig.servlet.FormServlet&lt;/servlet-class&gt;
+&lt;/servlet&gt;
+
+&lt;servlet-mapping&gt;
+   &lt;servlet-name&gt;FormServlet&lt;/servlet-name&gt;
+   &lt;url-pattern&gt;/FormServlet&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;</code></pre><p>然后，修改form.jsp文件form表单提交action，将响应的Servlet改为FormServlet：</p>
+<pre><code>&lt;form action=&quot;FormServlet&quot;, method=&quot;get&quot;&gt;
+website:&lt;input type=&quot;text&quot; name=&quot;website&quot;&gt;&lt;br&gt;
+author:&lt;input type=&quot;text&quot; name=&quot;author&quot;&gt;&lt;br&gt;
+gender:&lt;br&gt;
+male:&lt;input type=&quot;radio&quot; name=&quot;gender&quot; value=&quot;male&quot;&gt;
+female:&lt;input type=&quot;radio&quot; name=&quot;gender&quot; value=&quot;female&quot;&gt;
+&lt;br&gt;
+&lt;input type=&quot;submit&quot; value=&quot;submit&quot;&gt;
+&lt;input type=&quot;reset&quot; value=&quot;reset&quot;&gt;
+&lt;/form&gt;</code></pre><p>当浏览器访问<a href="http://localhost/demo/form.jsp" target="_blank" rel="noopener">http://localhost/demo/form.jsp</a>提交表单之后，可以得到如图1-2所显示的内容。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190925092935319.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTAxNjY0MDQ=,size_16,color_FFFFFF,t_70" alt="图1-2"></p>
+<p>可以看到，效果与JSP响应的页面效果是完全一致的。但是也注意到JSP和servlet的区别：</p>
+<ul>
+<li>Servlet中没有内置对象，原来JSP中的内置对象都必须由程序显示的调用或创建</li>
+<li>静态的HTML标签，Servlet必须显示的逐行输出。</li>
+</ul>
+<h1 id="2-Servlet配置"><a href="#2-Servlet配置" class="headerlink" title="2. Servlet配置"></a>2. Servlet配置</h1><p>在上一节，<a href="http://我们已经演示了单独的Servlet.java文件并不能响应用户的请求" class="test test-url" target="_blank" rel="noopener noreferrer">我们已经演示了单独的Servlet.java文件并不能响应用户的请求</a>，还必须将其编译成class文件之后放入demo工程的WEB-INF/classes目录下。Servlet有包的话，还应该把其放到对应的包路径下。</p>
+<p>而且，为了能让Servlet响应用户的请求，还需要将Servlet配置在Web应用中。上一节采用了传统的web.xml的配置方式，从Servlet3开始，配置方式新增了采用注解@WebServlet的方式进行配置。</p>
+<p>采用注解方式的话，<a href="http://需要给FormServlet.java文件添加注解" class="test test-url" target="_blank" rel="noopener noreferrer">需要给FormServlet.java文件添加注解</a>：</p>
+<pre><code>@WebServlet(name = &quot;FormServlet&quot;, urlPatterns = &quot;/FormServlet&quot;)
+public class FormServlet extends HttpServlet {
+……
+}</code></pre><p>同时，删除掉web.xml文件中的servlet节点的配置信息。</p>
+<p>此时，也可正常访问链接<a href="http://localhost/demo/form.jsp" target="_blank" rel="noopener">http://localhost/demo/form.jsp</a>。</p>
+<p>打开WebServlet的源码，可以看到其指定的如下的属性：</p>
+<pre><code>public @interface WebServlet {
+
+    /**
+     * The name of the servlet
+     */
+    String name() default &quot;&quot;;
+
+    /**
+     * The URL patterns of the servlet
+     */
+    String[] value() default {};
+
+    /**
+     * The URL patterns of the servlet
+     */
+    String[] urlPatterns() default {};
+
+    /**
+     * The load-on-startup order of the servlet 
+     */
+    int loadOnStartup() default -1;
+
+    /**
+     * The init parameters of the servlet
+     */
+    WebInitParam [] initParams() default {};
+
+    /**
+     * Declares whether the servlet supports asynchronous operation mode.
+     *
+     * @see javax.servlet.ServletRequest#startAsync
+     * @see javax.servlet.ServletRequest#startAsync(ServletRequest,
+     * ServletResponse)
+     */
+    boolean asyncSupported() default false;
+
+    /**
+     * The small-icon of the servlet
+     */
+    String smallIcon() default &quot;&quot;;
+
+     /**
+      * The large-icon of the servlet
+      */
+    String largeIcon() default &quot;&quot;;
+
+    /**
+     * The description of the servlet
+     */
+    String description() default &quot;&quot;;
+
+    /**
+     * The display name of the servlet
+     */
+    String displayName() default &quot;&quot;;
+
+}</code></pre><p>基本与web.xml可配置内容相一致。</p>
+<p>对于不同的方式配置Servlet，需要注意一下几点：</p>
+<ul>
+<li><p>注解配置</p>
+<ul>
+<li>不要在web.xml文件的根元素中指定meta-complete=”true”</li>
+<li>不要在web.xml文件中配置该Servlet</li>
+</ul>
+</li>
+<li><p>web.xml配置</p>
+<ul>
+<li>配置<servlet>节点</servlet></li>
+<li>配置<servlet-mapping>节点</servlet-mapping></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>注解作为Servlet3出现的新规范，对Web项目的开发进行了大量的优化。因此，在新项目的开发中应逐渐得到重视，并尽可能的采用注解的方式进行开发。但是国内的老项目系统很多采用了web.xml的方式进行了配置，因为系统庞大的原因，采用新注解方式进行重构的相对较少，因此，对web.xml配置方式也应该熟练掌握</p>
+</blockquote>
+<h1 id="3-Servlet参数配置"><a href="#3-Servlet参数配置" class="headerlink" title="3. Servlet参数配置"></a>3. Servlet参数配置</h1><h2 id="3-1-配置参数"><a href="#3-1-配置参数" class="headerlink" title="3.1 配置参数"></a>3.1 配置参数</h2><p>为Servlet配置参数如Servlet注解配置和web.xml配置一样，有两种方式：</p>
+<ul>
+<li>通过@WebServlet的initParams属性指定</li>
+<li>在web.xml文件中的<code>&lt;servlet&gt;</code>节点中添加<code>&lt;init-param&gt;</code>子元素指定。</li>
+</ul>
+<h2 id="3-2-访问参数"><a href="#3-2-访问参数" class="headerlink" title="3.2 访问参数"></a>3.2 访问参数</h2><p>访问Servlet的参数可以通过ServletConfig对象来完成。该类提供了getInitParameter(String name)用于获取初始化参数。</p>
+<p>作为示例，<a href="http://创建数据库连接的DAOServlet.java" class="test test-url" target="_blank" rel="noopener noreferrer">创建数据库连接的DAOServlet.java</a>，并拷贝以下内容：</p>
+<pre><code>package io.github.abbottkilig.servlet;
+
+import <a href="http://java.io.IOException" class="test test-url" target="_blank" rel="noopener noreferrer">java.io.IOException</a>;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebInitParam;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
+@WebServlet(name = &quot;DAOServlet&quot;, urlPatterns = &quot;/DAOServlet&quot;,
+            initParams = {
+                    @WebInitParam(name=&quot;driver&quot;, value = &quot;com.mysql.cj.jdbc.Driver&quot;),
+                    @WebInitParam(name=&quot;url&quot;, value = &quot;jdbc:<a href="mysql://localhost:3306/wechat?useSSL=false&&allowPublicKeyRetrieval=true&&serverTimezone=UTC" class="test test-url" target="_blank" rel="noopener noreferrer">mysql://localhost:3306/wechat?useSSL=false&amp;&amp;allowPublicKeyRetrieval=true&amp;&amp;serverTimezone=UTC</a>&quot;),
+                    @WebInitParam(name=&quot;username&quot;, value = &quot;root&quot;),
+                    @WebInitParam(name=&quot;password&quot;, value = &quot;<a href="mailto:71939224@qq.com" class="test test-email" target="_blank" rel="noopener noreferrer">71939224@qq.com</a>&quot;)
+                    } )
+public class DAOServlet extends HttpServlet {
+
+    @Override
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        ServletConfig config = getServletConfig();
+        String driver = config.getInitParameter(&quot;driver&quot;);
+        String url = config.getInitParameter(&quot;url&quot;);
+        String username = config.getInitParameter(&quot;username&quot;);
+        String password = config.getInitParameter(&quot;password&quot;);
+
+        try {
+            Class.forName(driver);
+            Connection conn = DriverManager.getConnection(url, username, password);
+            PreparedStatement ps = conn.prepareStatement(&quot;select * from emoji&quot;);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+               System.out.println(rs.getString(1));
+            }
+            rs.close();
+            ps.close();
+            conn.close();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+}</code></pre><p>代码中，采用了注解的方式对DAOServlet进行了参数配置，并通过ServletConfig获取参数并访问数据库。需要注意该Servlet并没有给通过前端输出流给前端返回内容，而是直接在控制台打印输出内容。</p>
+<p>使用ServletConfig和ServletContext获取配置参数的方法完全一致，只是ServletConfig获取的是当前Servlet的配置参数，而ServletContext获取的是整个Web应用的配置参数。</p>
+<p>在@WebServlet中使用元素类型为@WebInitParam的initParams数组属性为Servlet配置参数，查看其源码：</p>
+<pre><code>public @interface WebInitParam {
+
+    /**
+     * Name of the initialization parameter
+     */
+    String name();
+
+    /**
+     * Value of the initialization parameter
+     */    
+    String value();
+
+    /**
+     * Description of the initialization parameter
+     */
+    String description() default &quot;&quot;;
+}</code></pre><p>可以发现其接受两个属性：</p>
+<pre><code>- name：指定参数名
+- value：指定参数值</code></pre><p>浏览器访问<a href="http://localhost/demo/DAOServlet" target="_blank" rel="noopener">http://localhost/demo/DAOServlet</a>可以看到控制打印了从数据库查询到的信息。</p>
+<p>接下来，我们也给出在web.xml配置方式，<a href="http://首先取消DAOServlet.java的WebServlet注解" class="test test-url" target="_blank" rel="noopener noreferrer">首先取消DAOServlet.java的WebServlet注解</a>，然后在web.xml文件中添加<code>&lt;init-param&gt;</code>配置的方式：</p>
+<pre><code>&lt;servlet&gt;
+    &lt;servlet-name&gt;DAOServlet&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;io.github.abbottkilig.servlet.DAOServlet&lt;/servlet-class&gt;
+
+    &lt;init-param&gt;
+        &lt;param-name&gt;driver&lt;/param-name&gt;
+        &lt;param-value&gt;com.mysql.cj.jdbc.Driver&lt;/param-value&gt;
+    &lt;/init-param&gt;
+    &lt;init-param&gt;
+        &lt;param-name&gt;url&lt;/param-name&gt;
+        &lt;param-value&gt;jdbc:<a href="mysql://localhost:3306/wechat?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC" class="test test-url" target="_blank" rel="noopener noreferrer">mysql://localhost:3306/wechat?useSSL=false&amp;amp;allowPublicKeyRetrieval=true&amp;amp;serverTimezone=UTC</a>&lt;/param-value&gt;
+    &lt;/init-param&gt;
+    &lt;init-param&gt;
+        &lt;param-name&gt;username&lt;/param-name&gt;
+        &lt;param-value&gt;root&lt;/param-value&gt;
+    &lt;/init-param&gt;
+    &lt;init-param&gt;
+        &lt;param-name&gt;password&lt;/param-name&gt;
+        &lt;param-value&gt;<a href="mailto:71939224@qq.com" class="test test-email" target="_blank" rel="noopener noreferrer">71939224@qq.com</a>&lt;/param-value&gt;
+    &lt;/init-param&gt;
+&lt;/servlet&gt;
+
+&lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;DAOServlet&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;/DAOServlet&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;</code></pre><p>浏览器访问<a href="http://localhost/demo/DAOServlet" target="_blank" rel="noopener">http://localhost/demo/DAOServlet</a>同样可以看到控制打印了从数据库查询到的信息。</p>
+<h1 id="4-Servlet生命周期"><a href="#4-Servlet生命周期" class="headerlink" title="4. Servlet生命周期"></a>4. Servlet生命周期</h1><p>每个Servlet的运行都遵循如下的生命周期：</p>
+<ol>
+<li>创建Servlet实例</li>
+<li>Web容器调用Servlet的初始化方法，初始化Servlet</li>
+<li>Servlet存活直到Web容器关闭应用</li>
+<li>Web容器调用Servlet的destroy()方法关闭Servlet</li>
+</ol>
+<p>创建Servlet有两个时机：</p>
+<ul>
+<li>应用启动时创建</li>
+<li>用户请求时创建</li>
+</ul>
+<p>这两种的区别就是是否为Servlet配置了<code>&lt;load-on-startup&gt;</code>元素。</p>
+<p><code>load-on-startup</code>元素的配置需要注意以下几点：</p>
+<ol>
+<li><p><code>load-on-startup</code>元素标记容器是否应该在启动的时候加载这个servlet，(实例化并调用其init()方法)。</p>
+</li>
+<li><p>它的值必须是一个整数，表示servlet应该被载入的顺序</p>
+</li>
+<li><p>如果该元素不存在或者这个数为负时，则容器会当该Servlet被请求时，再加载。</p>
+</li>
+<li><p>当值为0或者大于0时，表示容器在应用启动时就加载并初始化这个servlet；</p>
+</li>
+<li><p>正数的值越小，该servlet的优先级越高，应用启动时就越先加载。</p>
+</li>
+<li><p>当值相同时，容器就会自己选择顺序来加载</p>
+</li>
+</ol>
+<h1 id="5-Servlet控制器"><a href="#5-Servlet控制器" class="headerlink" title="5. Servlet控制器"></a>5. Servlet控制器</h1><p>正如前面所看到的的，使用Servlet作为表现层使用的话， 需要维护大量的表现层的工作，这无论对于开发人员还是前端设计人员来说，都是一个复杂的工作。因此，使用Servlet作为表现层有三个劣势：</p>
+<ul>
+<li>开发效率低，前端都需要使用页面输出流完成</li>
+<li>不利于团队协作，后端和前端无法快速合并Servlet的开发</li>
+<li>程序可维护性差，修改前端功能，也得回到后端重新修改Servlet。</li>
+</ul>
+<p>在标准MVC模式提出之后，将Servlet仅作为控制器使用，能够快速的提升开发效率，做到前后端相分离。View只负责和用户交互，Servlet充当Controller，调用Model处理后台业务，将结果返回给前端来渲染处理结果。</p>
+<p>Model一般由JavaBean充当，所有对象组件、业务逻辑组件、数据访问组件等都在Model层。</p>
+<p>作为示例，展示Servlet做为控制器的MVC登陆验证应用。</p>
+<p>在demo工程下，新建login.jsp文件，拷贝如下代码：</p>
+<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;login mvc&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;!-- print error infor --&gt;
+&lt;span&gt;
+&lt;%
+if(request.getAttribute(&quot;error&quot;) != null)
+{
+    out.println(request.getAttribute(&quot;error&quot;) + &quot;&lt;br&gt;&quot;);
+}
+%&gt;
+&lt;/span&gt;
+&lt;!-- login form --&gt;
+&lt;form id=&quot;login&quot; action=&quot;login&quot;, method=&quot;post&quot;&gt;
+username:&lt;input type=&quot;text&quot;, name=&quot;name&quot;&gt;&lt;br&gt;
+password:&lt;input type=&quot;password&quot;, name=&quot;pass&quot;&gt;&lt;br&gt;
+&lt;input type=&quot;submit&quot; value=&quot;submit&quot;&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p>JSP页面中通过判断request对象是有拥有error属性来输出错误提示错误，将请求提交到名为login的Servlet，<a href="http://因此采用注解的方式在目录io.github.abbottkilig.servlet下新建login.java" class="test test-url" target="_blank" rel="noopener noreferrer">因此采用注解的方式在目录io.github.abbottkilig.servlet下新建login.java</a>，拷贝以下内容：</p>
+<pre><code>package io.github.abbottkilig.servlet;
+
+import <a href="http://java.io.IOException" class="test test-url" target="_blank" rel="noopener noreferrer">java.io.IOException</a>;
+import java.sql.ResultSet;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebInitParam;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import io.github.abbottkilig.utils.DBUtil;
+
+@WebServlet(name = &quot;login&quot;, urlPatterns = &quot;/login&quot;,
+            initParams = 
+            {
+                    @WebInitParam(name=&quot;driver&quot;,value =  &quot;com.mysql.cj.jdbc.Driver&quot;),
+                    @WebInitParam(name=&quot;url&quot;, value = &quot;jdbc:<a href="mysql://localhost:3306/wechat?useSSL=false&&allowPublicKeyRetrieval=true&&serverTimezone=UTC" class="test test-url" target="_blank" rel="noopener noreferrer">mysql://localhost:3306/wechat?useSSL=false&amp;&amp;allowPublicKeyRetrieval=true&amp;&amp;serverTimezone=UTC</a>&quot;),
+                    @WebInitParam(name=&quot;username&quot;, value = &quot;root&quot;),
+                    @WebInitParam(name=&quot;password&quot;, value = &quot;<a href="mailto:71939224@qq.com" class="test test-email" target="_blank" rel="noopener noreferrer">71939224@qq.com</a>&quot;)
+            })
+
+public class login extends HttpServlet {
+
+    @Override
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        String errorMessage = &quot;&quot;;
+        String name = req.getParameter(&quot;name&quot;);
+        String pass = req.getParameter(&quot;pass&quot;);
+
+        ServletConfig config = getServletConfig();
+        String driver = config.getInitParameter(&quot;driver&quot;);
+        String url = config.getInitParameter(&quot;url&quot;);
+        String username = config.getInitParameter(&quot;username&quot;);
+        String password = config.getInitParameter(&quot;password&quot;);
+
+        DBUtil dbu = new DBUtil(driver, url, username, password);
+        try {
+            ResultSet rs = <a href="http://dbu.select" class="test test-url" target="_blank" rel="noopener noreferrer">dbu.select</a>(&quot;select * from account where username = ?&quot;, name);
+            if (rs.next()) {
+                if (rs.getString(&quot;password&quot;).equals(pass)) {
+                    HttpSession session = req.getSession(true);
+                    session.setAttribute(&quot;name&quot;, name);
+                    RequestDispatcher rd = req.getRequestDispatcher(&quot;/welcome.jsp&quot;);
+                    rd.forward(req, resp);
+                }else {
+                    errorMessage +=&quot;password error!&quot;;
+                }
+            }else {
+                errorMessage += &quot;User is not existed!&quot;;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (!errorMessage.equals(&quot;&quot;)) {
+            RequestDispatcher rd = req.getRequestDispatcher(&quot;/login.jsp&quot;);
+            req.setAttribute(&quot;error&quot;, errorMessage);
+            rd.forward(req, resp);
+        }
+    }
+
+}</code></pre><p>login通过@WebServlet的方式配置了注解，给/login发送的请求将会交给该Servlet来进行处理。</p>
+<p>在登陆验证中，涉及到了数据库查询操作，数据Model层，因此设计DBUtil类来进行与数据库的交互。下面给出了DBUtil的源代码：</p>
+<pre><code>package io.github.abbottkilig.utils;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class DBUtil {
+
+    private String driver;
+    private String url;
+    private String username;
+    private String password;
+    private Connection conn;
+
+
+    public DBUtil() {
+    }
+
+    public DBUtil(String driver, String url, String username, String password) {
+        super();
+        this.driver = driver;
+        this.url = url;
+        this.username = username;
+        this.password = password;
+    }
+
+    public String getDriver() {
+        return driver;
+    }
+
+    public void setDriver(String driver) {
+        this.driver = driver;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Connection getConnection() throws Exception {
+        if (conn == null) {
+            Class.forName(this.driver);
+            conn = DriverManager.getConnection(this.url, this.username, this.password);
+        }
+
+        return conn;
+    }
+
+    public boolean insert(String sql, Object... args) throws  Exception {
+        PreparedStatement ps = getConnection().prepareStatement(sql);
+        for (int i = 0; i &lt; args.length; i++) {
+            ps.setObject(i+1, args[i]);
+        }
+        if (ps.executeUpdate() != 1) {
+            return false;
+        }
+        return true;
+
+    }
+
+    public boolean update(String sql, Object... args) throws  Exception {
+        PreparedStatement ps = getConnection().prepareStatement(sql);
+        for (int i = 0; i &lt; args.length; i++) {
+            ps.setObject(i+1, args[i]);
+        }
+        if (ps.executeUpdate() != 1) {
+            return false;
+        }
+        return true;
+
+    }
+
+    public boolean delete(String sql, Object... args) throws  Exception {
+        PreparedStatement ps = getConnection().prepareStatement(sql);
+        for (int i = 0; i &lt; args.length; i++) {
+            ps.setObject(i+1, args[i]);
+        }
+        if (!ps.execute()) {
+            return false;
+        }
+        return true;
+
+    }
+
+    public ResultSet select(String sql, Object... args) throws  Exception {
+        PreparedStatement ps = getConnection().prepareStatement(sql);
+        for (int i = 0; i &lt; args.length; i++) {
+            ps.setObject(i+1, args[i]);
+        }
+
+        return ps.executeQuery();
+
+    }
+
+    public void close() throws SQLException {
+        if (conn!= null &amp;&amp; !conn.isClosed()) {
+            conn.close();
+        }
+    }
+
+
+}</code></pre><p>接下来，当从数据库中正确匹配到用户的信息时，采用session对象来保存用户的会话信息，并利用request重定向操作指向了welcome.jsp页面。当用户名不存在或密码不匹配时，重定向到login.jsp页面并显示错误信息。</p>
+<p>下面给出welcome.jsp的代码：</p>
+<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+pageEncoding=&quot;UTF-8&quot;%&gt;
+
+
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;welcome&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;
+welcome:&lt;%= session.getAttribute(&quot;name&quot;)%&gt;
+&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p>可以看出，项目通过login.jsp和welcome.jsp视图层，login控制层，DBUtil模型层，做到了业务逻辑、控制、视图的拆分，简化了开发。</p>
+<p>最后，给出工程的web.xml配置（注意，需要删除或注释掉login的注解）：</p>
+<pre><code>&lt;servlet&gt;
+    &lt;servlet-name&gt;login&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;io.github.abbottkilig.servlet.login&lt;/servlet-class&gt;
+
+    &lt;init-param&gt;
+        &lt;param-name&gt;driver&lt;/param-name&gt;
+        &lt;param-value&gt;com.mysql.cj.jdbc.Driver&lt;/param-value&gt;
+    &lt;/init-param&gt;
+    &lt;init-param&gt;
+        &lt;param-name&gt;url&lt;/param-name&gt;
+        &lt;param-value&gt;jdbc:<a href="mysql://localhost:3306/wechat?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC" class="test test-url" target="_blank" rel="noopener noreferrer">mysql://localhost:3306/wechat?useSSL=false&amp;amp;allowPublicKeyRetrieval=true&amp;amp;serverTimezone=UTC</a>&lt;/param-value&gt;
+    &lt;/init-param&gt;
+    &lt;init-param&gt;
+        &lt;param-name&gt;username&lt;/param-name&gt;
+        &lt;param-value&gt;root&lt;/param-value&gt;
+    &lt;/init-param&gt;
+    &lt;init-param&gt;
+        &lt;param-name&gt;password&lt;/param-name&gt;
+        &lt;param-value&gt;<a href="mailto:71939224@qq.com" class="test test-email" target="_blank" rel="noopener noreferrer">71939224@qq.com</a>&lt;/param-value&gt;
+    &lt;/init-param&gt;
+&lt;/servlet&gt;
+
+&lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;login&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;/login&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;</code></pre>
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 <a href="mailto:AbbottKilig@163.com" class="test test-email" target="_blank" rel="noopener noreferrer">AbbottKilig@163.com</a> </span>
+    </div>
+</article>
+
+
+<p>
+    <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>Servlet入门</p>
+    
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="AbbottKilig">AbbottKilig</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-09-24, 20:15:13</p>
+    <p><span class="copy-title">最后更新:</span>2019-09-25, 15:28:50</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/JavaEE/Servlet入门/" title="Servlet入门">http://AbbottKilig.github.io/JavaEE/Servlet入门/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 abbottkilig</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['<a href="https://instagram.com/explore/tags/Web" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#Web</a>','<a href="https://instagram.com/explore/tags/Tomcat" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#Tomcat</a>','<a href="https://instagram.com/explore/tags/Java" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#Java</a>','<a href="https://instagram.com/explore/tags/JSP" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#JSP</a>',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("<a href="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" class="test test-url" target="_blank" rel="noopener noreferrer">busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js</a>");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid <a href="https://instagram.com/explore/tags/e2dede" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#e2dede</a>;
+        background: <a href="https://instagram.com/explore/tags/FFF" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#FFF</a>;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid <a href="https://instagram.com/explore/tags/C3CCD0" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#C3CCD0</a>;
+        text-align: right;
+        color: <a href="https://instagram.com/explore/tags/AAA" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#AAA</a>;
+        background-color: <a href="https://instagram.com/explore/tags/fafafa" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#fafafa</a>;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list <a href="https://instagram.com/explore/tags/local" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#local</a>-search-result a .post-title {
+        color: <a href="https://instagram.com/explore/tags/383636" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#383636</a>;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list <a href="https://instagram.com/explore/tags/local" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#local</a>-search-result a .post-date {
+        color: <a href="https://instagram.com/explore/tags/5e5e5f" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#5e5e5f</a>;
+    }
+    
+    
+    .nav-right nav a.hover, <a href="https://instagram.com/explore/tags/local" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#local</a>-search-result a.hover{
+        background-color: <a href="https://instagram.com/explore/tags/e2e0e0" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#e2e0e0</a>;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: <a href="https://instagram.com/explore/tags/e2dede" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#e2dede</a> solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("<a href="https://i.loli.net/2019/07/22/5d3521411f3f169375.png" class="test test-url" target="_blank" rel="noopener noreferrer">https://i.loli.net/2019/07/22/5d3521411f3f169375.png</a>");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
