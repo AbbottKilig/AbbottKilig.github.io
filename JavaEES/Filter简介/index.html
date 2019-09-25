@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>Hello World | AbbottKilig&#39;s blog</title>
-  <meta name="keywords" content>
-  <meta name="description" content="Hello World | AbbottKilig&#39;s blog">
+  <title>Filter简介 | AbbottKilig&#39;s blog</title>
+  <meta name="keywords" content=" Web , java , Filter ">
+  <meta name="description" content="Filter简介 | AbbottKilig&#39;s blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="AbbottKilig&apos;s blog">
 <meta property="og:type" content="website">
@@ -287,19 +287,35 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Filter简介" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Hello World</h1>
+        <h1 class="article-title">Filter简介</h1>
     
     <div class="article-meta">
         
         
         
+        <span class="book">
+            
+                <a href="javascript:" data-rel="JavaEES">JavaEES</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color4">Web</a>
+            
+            <a href="javascript:" class="color5">java</a>
+            
+            <a href="javascript:" class="color2">Filter</a>
+            
+        </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-09-23 08:26:00'>2019-09-23 08:26</time>
+        创建时间:<time class="date" title='更新时间: 2019-09-25 17:09:50'>2019-09-25 15:40</time>
         
     </div>
     <div class="article-meta">
@@ -321,7 +337,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-创建并配置Filter"><span class="toc-text">1. 创建并配置Filter</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -337,19 +353,181 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+        <p>Filter顾名思义就是一种过滤器，是对Servlet的加强，主要负责对用户的请求信息和服务器返回信息的预处理和过滤，是一个典型的处理链。有如下几个用处:</p>
+<ul>
+<li>在HttpServletRequest到达Servlet之前，拦截HttpServletRequest请求</li>
+<li>根据需要检查和修改HttpServletRequest的信息</li>
+<li>在HttpServletResponse返回客户端之间，拦截HttpServletResponse</li>
+<li>根据需要检查和修改HttpServletResponse的信息</li>
+</ul>
+<p>Filter主要由如下几类：</p>
+<ul>
+<li>用户授权Filter：负责检查用户请求，过滤非法请求</li>
+<li>日志Filter：记录特殊的请求信息</li>
+<li>解码Filter：对非标准编码的请求进行解码</li>
+<li>SXLT Filter：修改XML请求内容</li>
+<li>拦截Filter：拦截用户请求和服务器响应。</li>
+</ul>
+<p>那么如何使用Filter呢？一般需要以下两个步骤：</p>
+<ol>
+<li>创建Filter处理类</li>
+<li>采用web.xml方式或注解的方式配置Filter</li>
+</ol>
+<h2 id="1-创建并配置Filter"><a href="#1-创建并配置Filter" class="headerlink" title="1. 创建并配置Filter"></a>1. 创建并配置Filter</h2><p>创建Filter必须实现javax.servlet.Filter接口，该接口的定义如下：</p>
+<pre><code>public interface Filter {
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+    /** 
+     * Called by the web container to indicate to a filter that it is
+     * being placed into service.
+     *
+     * &lt;p&gt;The servlet container calls the init
+     * method exactly once after instantiating the filter. The init
+     * method must complete successfully before the filter is asked to do any
+     * filtering work.
+     * 
+     * &lt;p&gt;The web container cannot place the filter into service if the init
+     * method either
+     * &lt;ol&gt;
+     * &lt;li&gt;Throws a ServletException
+     * &lt;li&gt;Does not return within a time period defined by the web container
+     * &lt;/ol&gt;
+     */
+    public void init(FilterConfig filterConfig) throws ServletException;
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+    /**
+     * The &lt;code&gt;doFilter&lt;/code&gt; method of the Filter is called by the
+     * container each time a request/response pair is passed through the
+     * chain due to a client request for a resource at the end of the chain.
+     * The FilterChain passed in to this method allows the Filter to pass
+     * on the request and response to the next entity in the chain.
+     *
+     * &lt;p&gt;A typical implementation of this method would follow the following
+     * pattern:
+     * &lt;ol&gt;
+     * &lt;li&gt;Examine the request
+     * &lt;li&gt;Optionally wrap the request object with a custom implementation to
+     * filter content or headers for input filtering
+     * &lt;li&gt;Optionally wrap the response object with a custom implementation to
+     * filter content or headers for output filtering
+     * &lt;li&gt;
+     * &lt;ul&gt;
+     * &lt;li&gt;&lt;strong&gt;Either&lt;/strong&gt; invoke the next entity in the chain
+     * using the FilterChain object
+     * (&lt;code&gt;chain.doFilter()&lt;/code&gt;),
+     * &lt;li&gt;&lt;strong&gt;or&lt;/strong&gt; not pass on the request/response pair to
+     * the next entity in the filter chain to
+     * block the request processing
+     * &lt;/ul&gt;
+     * &lt;li&gt;Directly set headers on the response after invocation of the
+     * next entity in the filter chain.
+     * &lt;/ol&gt;
+     */
+    public void doFilter(ServletRequest request, ServletResponse response,
+                         FilterChain chain)
+            throws IOException, ServletException;
 
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+    /**
+     * Called by the web container to indicate to a filter that it is being
+     * taken out of service.
+     *
+     * &lt;p&gt;This method is only called once all threads within the filter&apos;s
+     * doFilter method have exited or after a timeout period has passed.
+     * After the web container calls this method, it will not call the
+     * doFilter method again on this instance of the filter.
+     *
+     * &lt;p&gt;This method gives the filter an opportunity to clean up any
+     * resources that are being held (for example, memory, file handles,
+     * threads) and make sure that any persistent state is synchronized
+     * with the filter&apos;s current state in memory.
+     */
+    public void destroy();
+}</code></pre><p>方法的注释已经对每个方法的功能进行了详细的描述。</p>
+<p>接下来，我们对Servlet简介一章里面提到的用户登录验证功能进行拆分，定义一个用户授权的Filter，该Filter对用户的请求进行过滤，验证用户是否已经登录，如果用户已经登录，则直接进去请求的页面，否则跳转到登录界面。下面给出了具体的代码：</p>
+<pre><code>package io.github.abbottkilig.filter;
+
+import <a href="http://java.io.IOException" class="test test-url" target="_blank" rel="noopener noreferrer">java.io.IOException</a>;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
+import javax.servlet.annotation.WebInitParam;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import com.mysql.cj.Session;
+
+@WebFilter(filterName = &quot;authority&quot;, urlPatterns = {&quot;/*&quot;},
+            initParams = {
+                    @WebInitParam(name = &quot;loginPage&quot;, value = &quot;/login.jsp&quot;),
+                    @WebInitParam(name = &quot;welcomePage&quot;, value = &quot;/welcome.jsp&quot;)
+            }
+        )
+public class AuthorityFilter implements Filter {
+
+    private FilterConfig config;
+
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+        this.config = filterConfig;
+    }
+
+    @Override
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+            throws IOException, ServletException {
+             HttpServletRequest hsr =  (HttpServletRequest)request;
+             HttpSession session = hsr.getSession(true);
+             if (session.getAttribute(&quot;name&quot;) == null) {
+                 request.setAttribute(&quot;error&quot;, &quot;please login!&quot;);
+                hsr.getRequestDispatcher(config.getInitParameter(&quot;loginPage&quot;)).forward(request, response);
+            }else {
+                chain.doFilter(request, response);
+            }
+    }
+
+    @Override
+    public void destroy() {
+        this.config = null;
+    }
+
+}</code></pre><p>代码中采用了注解的方式配置了Filter,其配置与Servlet相当类似，都需要配置以下两个部分：</p>
+<ul>
+<li>Filter的名称</li>
+<li>配置Filter拦截的URL模型。注意此处urlPatterns为字符串数组，表示可以运用到多个URL模型上</li>
+</ul>
+<p>同样的，我们给出AuthorityFilter在web.xml中的配置</p>
+<pre><code>&lt;filter&gt;
+    &lt;filter-name&gt;authority&lt;/filter-name&gt;
+    &lt;filter-class&gt;io.github.abbottkilig.filter.AuthorityFilter&lt;/filter-class&gt;
+    &lt;init-param&gt;
+        &lt;param-name&gt;loginPage&lt;/param-name&gt;
+        &lt;param-value&gt;/login.jsp&lt;/param-value&gt;
+    &lt;/init-param&gt;
+
+    &lt;init-param&gt;
+        &lt;param-name&gt;welcomePage&lt;/param-name&gt;
+        &lt;param-value&gt;/welcome.jsp&lt;/param-value&gt;
+    &lt;/init-param&gt;
+&lt;/filter&gt;
+
+&lt;filter-mapping&gt;
+    &lt;filter-name&gt;authority&lt;/filter-name&gt;
+    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;</code></pre><p>此时，当我们访问<a href="http://localhost/demo/welcome.jsp" target="_blank" rel="noopener">http://localhost/demo/welcome.jsp</a>或demo应用下的任意一个界面，都会跳转到如图1-1所示的login.jsp页面，要求用户登陆。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190925170158533.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTAxNjY0MDQ=,size_16,color_FFFFFF,t_70" alt="图1-1"></p>
+<p>既然之前提到的Servlet可以做这样的逻辑，为什么还要将验证逻辑提取出来放在Filter里面呢？原因有以下几点：</p>
+<ul>
+<li><p>Servlet通常只能匹配一个URL，而Filter可以同时拦截多个请求的URL。因此，如果需要多Web应用的多个请求都做登录验证，在每个Servlet里面写验证功能将造成大量的代码冗余，将多个Servlet里面共同的逻辑提取出来形成Filter，将能够极大的提高代码的复用性。</p>
+</li>
+<li><p>对于一个Web应用来说，许多Servlet都需要一些通用的操作，如权限控制、日志记录等等，这些在Servlet的service()方法中的代码都是相同的，可以考虑将这样的通用处理逻辑提取到Filter中完成。</p>
+</li>
+</ul>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 <a href="mailto:AbbottKilig@163.com" class="test test-email" target="_blank" rel="noopener noreferrer">AbbottKilig@163.com</a> </span>
@@ -363,12 +541,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>Hello World</p>
+    <p><span class="copy-title">文章标题:</span>Filter简介</p>
     
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="AbbottKilig">AbbottKilig</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-09-23, 08:26:00</p>
-    <p><span class="copy-title">最后更新:</span>2019-09-23, 08:26:00</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/JavaEE/hello-world/" title="Hello World">http://AbbottKilig.github.io/JavaEE/hello-world/</a>
+    <p><span class="copy-title">发布时间:</span>2019-09-25, 15:40:33</p>
+    <p><span class="copy-title">最后更新:</span>2019-09-25, 17:09:50</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/JavaEES/Filter简介/" title="Filter简介">http://AbbottKilig.github.io/JavaEES/Filter简介/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
