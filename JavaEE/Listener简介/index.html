@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>Listener简介 | AbbottKilig&#39;s blog</title>
+  <meta name="keywords" content=" Web , java , Listener ">
+  <meta name="description" content="Listener简介 | AbbottKilig&#39;s blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="AbbottKilig&apos;s blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="about">
+<meta property="og:url" content="http://AbbottKilig.github.io/about/index.html">
+<meta property="og:site_name" content="AbbottKilig&#39;s blog">
+<meta property="og:description" content="AbbottKilig&apos;s blog">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-23T00:26:00.125Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="about">
+<meta name="twitter:description" content="AbbottKilig&apos;s blog">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+<script src="/js/iconfont.js?v=1.0.1"></script>
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value>
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>AbbottKilig</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="rss" href="/atom.xml" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="github" href="https://github.com/abbottkilig" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        <a title="email" href="mailto:abbottkilig@163.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=872336115&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(7)</small></div></li>
+    
+        
+            
+            <li><div data-rel="JavaEE">JavaEE<small>(5)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="JavaEES">JavaEES<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="7">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Web</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Tomcat</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Java</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">java</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Filter</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">JSP</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Listener</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class=""
+           href="/JavaEE/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2019-09-23 08:26:00">2019/09/23</span>
+        </a>
+        
+        <a  class="JavaEE "
+           href="/JavaEE/手动构建Web应用/"
+           data-tag="Web"
+           data-author="" >
+            <span class="post-title" title="手动构建Web应用">手动构建Web应用</span>
+            <span class="post-date" title="2019-09-21 19:57:50">2019/09/21</span>
+        </a>
+        
+        <a  class="JavaEE "
+           href="/JavaEE/Tomcat安装与配置/"
+           data-tag="Web,Tomcat,Java"
+           data-author="" >
+            <span class="post-title" title="Tomcat安装与配置">Tomcat安装与配置</span>
+            <span class="post-date" title="2019-09-21 12:16:41">2019/09/21</span>
+        </a>
+        
+        <a  class="JavaEES "
+           href="/JavaEES/Filter简介/"
+           data-tag="Web,java,Filter"
+           data-author="" >
+            <span class="post-title" title="Filter简介">Filter简介</span>
+            <span class="post-date" title="2019-09-25 15:40:33">2019/09/25</span>
+        </a>
+        
+        <a  class="JavaEE "
+           href="/JavaEE/Servlet入门/"
+           data-tag="Web,Java"
+           data-author="" >
+            <span class="post-title" title="Servlet入门">Servlet入门</span>
+            <span class="post-date" title="2019-09-24 20:15:13">2019/09/24</span>
+        </a>
+        
+        <a  class="JavaEE "
+           href="/JavaEE/JSP简介/"
+           data-tag="Web,JSP"
+           data-author="" >
+            <span class="post-title" title="JSP简介">JSP简介</span>
+            <span class="post-date" title="2019-09-23 08:43:06">2019/09/23</span>
+        </a>
+        
+        <a  class="JavaEE "
+           href="/JavaEE/Listener简介/"
+           data-tag="Web,java,Listener"
+           data-author="" >
+            <span class="post-title" title="Listener简介">Listener简介</span>
+            <span class="post-date" title="2019-09-25 19:38:21">2019/09/25</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-Listener简介" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Listener简介</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="JavaEE">JavaEE</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color4">Web</a>
+            
+            <a href="javascript:" class="color5">java</a>
+            
+            <a href="javascript:" class="color4">Listener</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-09-26 10:48:40'>2019-09-25 19:38</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-编写Listener类"><span class="toc-text">1. 编写Listener类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-ServletContextListener开发"><span class="toc-text">1.1 ServletContextListener开发</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-2-ServletContextAttributeListener开发"><span class="toc-text">1.2 ServletContextAttributeListener开发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-ServletRequestListener和ServletRequestAttributeListener类"><span class="toc-text">1.3 ServletRequestListener和ServletRequestAttributeListener类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-HttpSessionListener和HtppSessionAttributeListener"><span class="toc-text">1.4 HttpSessionListener和HtppSessionAttributeListener</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Listener配置"><span class="toc-text">2. Listener配置</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>监听器用来监听Web应用内的内部事件，如Web应用启动、停止，用户session会话开始、接受，用户请求到达等。对于开发者而言，这些信息可以用来判断程序的运行状态、负载等，将是非常重要的信息。</p>
+<p>但是，要记录这样的信息，一种方式是在Web应用相关的每个函数内都加上响应的日志信息。如果后日要更改日志格式等，就必须修改大量的Web应用的源代码，造成维护成本很大。</p>
+<p>因此，为了解决这样的问题，Listener孕育而生，通过单独的Listener类，监听Web应用的状态。</p>
+<p>使用Listener需要两个步骤：</p>
+<ul>
+<li>定义Listener实现类</li>
+<li>使用注解或web.xml的方式配置listener</li>
+</ul>
+<h1 id="1-编写Listener类"><a href="#1-编写Listener类" class="headerlink" title="1. 编写Listener类"></a>1. 编写Listener类</h1><p>对于Web应用而言，不同的Web事件对应的监听器各不相同，常用的Web时间监听器接口有：</p>
+<ul>
+<li>ServletContextListener:监听Web应用的启动和关闭</li>
+<li>ServletContextAttributeListener：监听ServletContext范围内属性的改变</li>
+<li>ServletRequestListener：监听用户请求</li>
+<li>ServletRequestAttributeListener：监听ServletRequest范围内属性的改变</li>
+<li>HttpSessionListener：监听session的开始和结束</li>
+<li>HttpSessionAttributeListener：监听HttpSession范围内属性的改变</li>
+</ul>
+<p>接下来，分别介绍几个监听器的开发和使用。</p>
+<h2 id="1-1-ServletContextListener开发"><a href="#1-1-ServletContextListener开发" class="headerlink" title="1.1 ServletContextListener开发"></a>1.1 ServletContextListener开发</h2><p>ServletContextListener用去监听Web应用的启动和关闭，该Listener必须实现ServletContextListener接口，且接口包含如下两个方法：</p>
+<pre><code>public interface ServletContextListener extends EventListener {
+
+    /**
+     * Receives notification that the web application initialization
+     * process is starting.
+     *
+     * &lt;p&gt;All ServletContextListeners are notified of context
+     * initialization before any filters or servlets in the web
+     * application are initialized.
+     *
+     * @param sce the ServletContextEvent containing the ServletContext
+     * that is being initialized
+     */
+    public void contextInitialized(ServletContextEvent sce);
+
+    /**
+     * Receives notification that the ServletContext is about to be
+     * shut down.
+     *
+     * &lt;p&gt;All servlets and filters will have been destroyed before any
+     * ServletContextListeners are notified of context
+     * destruction.
+     *
+     * @param sce the ServletContextEvent containing the ServletContext
+     * that is being destroyed
+     */
+    public void contextDestroyed(ServletContextEvent sce);
+}</code></pre><p>接下来，创建一个获取数据库连接的Listener,该Listener在应用启动时获取数据库的连接，并将取得的链接设置成application范围内的属性。在demo工程io.github.abbottkilig.listener包下新建getConnListener类，拷贝以下代码：</p>
+<pre><code>package io.github.abbottkilig.listener;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebInitParam;
+import javax.servlet.annotation.WebListener;
+
+
+@WebListener()
+public class GetConnListener implements ServletContextListener {
+
+    @Override
+    public void contextInitialized(ServletContextEvent sce) {
+        ServletContext servletContext = sce.getServletContext();
+        String driver = servletContext.getInitParameter(&quot;driver&quot;);
+        String url = servletContext.getInitParameter(&quot;url&quot;);
+        String username = servletContext.getInitParameter(&quot;username&quot;);
+        String password = servletContext.getInitParameter(&quot;password&quot;);
+        try {
+            Class.forName(driver);
+            Connection conn = DriverManager.getConnection(url, username, password);
+            servletContext.setAttribute(&quot;conn&quot;, conn);
+        } catch (Exception e) {
+            System.out.println(&quot;database cann&apos;t be connected&quot;);
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    @Override
+    public void contextDestroyed(ServletContextEvent sce) {
+        ServletContext servletContext = sce.getServletContext();
+        Connection conn = (Connection)servletContext.getAttribute(&quot;conn&quot;);
+        try {
+
+        if (conn != null || !conn.isClosed()) {
+            conn.close();
+            sce.getServletContext().removeAttribute(&quot;conn&quot;);
+        }
+        }
+        catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+}</code></pre><p>从代码中可以看到，getConnListener实现了ServletContextListener接口规定的两个方法contextnitialized()和contextDestroyed()contextnitialized()实现在Web应用启动的时候启动数据库的连接，contextDestroyed()实现在关闭Web应用的时候关闭数据库的链接，实现为整个Web应用提供数据库连接服务。</p>
+<h1 id="1-2-ServletContextAttributeListener开发"><a href="#1-2-ServletContextAttributeListener开发" class="headerlink" title="1.2 ServletContextAttributeListener开发"></a>1.2 ServletContextAttributeListener开发</h1><p>ServletContextAttributeListener用于监听ServletContext范围内的属性变化，查看该接口源码，需要实现其三个方法：</p>
+<pre><code>public interface ServletContextAttributeListener extends EventListener {
+
+    /**
+     * Receives notification that an attribute has been added to the
+     * ServletContext.
+     *
+     * @param event the ServletContextAttributeEvent containing the
+     * ServletContext to which the attribute was added, along with the
+     * attribute name and value
+     */
+    public void attributeAdded(ServletContextAttributeEvent event);
+
+    /**
+     * Receives notification that an attribute has been removed
+     * from the ServletContext.
+     *
+     * @param event the ServletContextAttributeEvent containing the
+     * ServletContext from which the attribute was removed, along with
+     * the attribute name and value
+     */
+    public void attributeRemoved(ServletContextAttributeEvent event);
+
+    /*
+     * Receives notification that an attribute has been replaced
+     * in the ServletContext.
+     *
+     * @param event the ServletContextAttributeEvent containing the
+     * ServletContext in which the attribute was replaced, along with
+     * the attribute name and its old value
+     */
+    public void attributeReplaced(ServletContextAttributeEvent event);
+}</code></pre><p>下面给出监听ServletContext范围内属性变化的Listener。<a href="http://在的demo工程包io.github.abbottkilig.listener下新建CustomerServletAttributeListener.java" class="test test-url" target="_blank" rel="noopener noreferrer">在的demo工程包io.github.abbottkilig.listener下新建CustomerServletAttributeListener.java</a>，拷贝以下代码</p>
+<pre><code>package io.github.abbottkilig.listener;
+
+import javax.servlet.ServletContextAttributeEvent;
+import javax.servlet.ServletContextAttributeListener;
+import javax.servlet.annotation.WebListener;
+
+@WebListener
+public class CustomerServletAttributeListener implements ServletContextAttributeListener{
+
+    @Override
+    public void attributeAdded(ServletContextAttributeEvent event) {
+        String name = event.getName();
+        Object value = event.getValue();
+        System.out.println(event.getServletContext().getServletContextName() + &quot;add a new attribute (name=&quot; + name + &quot;,value=&quot; + value + &quot;)&quot;);
+    }
+
+    @Override
+    public void attributeRemoved(ServletContextAttributeEvent event) {
+        String name = event.getName();
+        Object value = event.getValue();
+        System.out.println(event.getServletContext().getServletContextName() + &quot;removes a attribute (name=&quot; + name + &quot;,value=&quot; + value + &quot;)&quot;);
+    }
+
+    @Override
+    public void attributeReplaced(ServletContextAttributeEvent event) {
+
+        String name = event.getName();
+        Object value = event.getValue();
+        System.out.println(event.getServletContext().getServletContextName() + &quot;changes a attribue (name=&quot; + name + &quot;,value=&quot; + value + &quot;)&quot;);
+    }
+
+}</code></pre><p>该监听器通过三个方法对Web应用内的属性添加、删除、修改进行了监听。当放生对应的事件时，该监听器将被触发。</p>
+<blockquote>
+<p>注意：这里注解依旧使用的是@WebListener</p>
+</blockquote>
+<h2 id="1-3-ServletRequestListener和ServletRequestAttributeListener类"><a href="#1-3-ServletRequestListener和ServletRequestAttributeListener类" class="headerlink" title="1.3 ServletRequestListener和ServletRequestAttributeListener类"></a>1.3 ServletRequestListener和ServletRequestAttributeListener类</h2><p>和之前小节的内容比较相似，ServletRequestListener类用于监听用户请求的到达，ServletRequestAttributeListener则用于监听ServletRequest范围内属性的变动。</p>
+<p>ServletRequestListener接口规定了以下方法：</p>
+<pre><code>public interface ServletRequestListener extends EventListener {
+
+    /**
+     * Receives notification that a ServletRequest is about to go out
+     * of scope of the web application.
+     *
+     * @param sre the ServletRequestEvent containing the ServletRequest
+     * and the ServletContext representing the web application
+     */
+    public void requestDestroyed(ServletRequestEvent sre);
+
+    /**
+     * Receives notification that a ServletRequest is about to come
+     * into scope of the web application.
+     *
+     * @param sre the ServletRequestEvent containing the ServletRequest
+     * and the ServletContext representing the web application
+     */
+    public void requestInitialized(ServletRequestEvent sre);
+}</code></pre><p>ServletRequestAttributeListener接口规定了以下方法：</p>
+<pre><code>public interface ServletContextAttributeListener extends EventListener {
+
+    /**
+     * Receives notification that an attribute has been added to the
+     * ServletContext.
+     *
+     * @param event the ServletContextAttributeEvent containing the
+     * ServletContext to which the attribute was added, along with the
+     * attribute name and value
+     */
+    public void attributeAdded(ServletContextAttributeEvent event);
+
+    /**
+     * Receives notification that an attribute has been removed
+     * from the ServletContext.
+     *
+     * @param event the ServletContextAttributeEvent containing the
+     * ServletContext from which the attribute was removed, along with
+     * the attribute name and value
+     */
+    public void attributeRemoved(ServletContextAttributeEvent event);
+
+    /*
+     * Receives notification that an attribute has been replaced
+     * in the ServletContext.
+     *
+     * @param event the ServletContextAttributeEvent containing the
+     * ServletContext in which the attribute was replaced, along with
+     * the attribute name and its old value
+     */
+    public void attributeReplaced(ServletContextAttributeEvent event);
+}</code></pre><p>在开发过程中，为了简化，可以用一个类来实现多个监听器的接口，以实现对多种实践的监听。</p>
+<p>下面给出一个具体的的实例。</p>
+<p><a href="http://在的demo工程包io.github.abbottkilig.listener下新建RequestListener.java" class="test test-url" target="_blank" rel="noopener noreferrer">在的demo工程包io.github.abbottkilig.listener下新建RequestListener.java</a>，拷贝以下代码</p>
+<pre><code>package io.github.abbottkilig.listener;
+
+import javax.servlet.ServletContextAttributeEvent;
+import javax.servlet.ServletContextAttributeListener;
+import javax.servlet.ServletRequestAttributeEvent;
+import javax.servlet.ServletRequestAttributeListener;
+import javax.servlet.ServletRequestEvent;
+import javax.servlet.ServletRequestListener;
+import javax.servlet.http.HttpServletRequest;
+@WebListener
+public class RequestListener implements ServletRequestListener, ServletRequestAttributeListener {
+
+
+
+    @Override
+    public void requestDestroyed(ServletRequestEvent sre) {
+
+        HttpServletRequest req = (HttpServletRequest)sre.getServletRequest();
+        System.out.println(req.getRequestURI() + &quot;was requested by &quot; + req.getRemoteAddr() + &quot;:&quot; + req.getRemotePort());
+    }
+
+    @Override
+    public void requestInitialized(ServletRequestEvent sre) {
+        HttpServletRequest req = (HttpServletRequest)sre.getServletRequest();
+        System.out.println(req.getRemoteAddr() + &quot;:&quot; + req.getRemotePort() + &quot; is requesting &quot;+ req.getRequestURI());
+    }
+
+    @Override
+    public void attributeAdded(ServletRequestAttributeEvent srae) {
+        String name = srae.getName();
+        Object value = srae.getValue();
+        System.out.println(srae.getServletRequest() + &quot;add a attribute (name=&quot; + name + &quot;,value=&quot; + value + &quot;)&quot;);
+    }
+
+    @Override
+    public void attributeRemoved(ServletRequestAttributeEvent srae) {
+        String name = srae.getName();
+        Object value = srae.getValue();
+        System.out.println(srae.getServletRequest() + &quot;removes a attribute (name=&quot; + name + &quot;,value=&quot; + value + &quot;)&quot;);
+
+    }
+
+    @Override
+    public void attributeReplaced(ServletRequestAttributeEvent srae) {
+        String name = srae.getName();
+        Object value = srae.getValue();
+        System.out.println(srae.getServletRequest() + &quot;changes a attribue (name=&quot; + name + &quot;,value=&quot; + value + &quot;)&quot;);
+
+    }
+
+
+
+}</code></pre><h2 id="1-4-HttpSessionListener和HtppSessionAttributeListener"><a href="#1-4-HttpSessionListener和HtppSessionAttributeListener" class="headerlink" title="1.4 HttpSessionListener和HtppSessionAttributeListener"></a>1.4 HttpSessionListener和HtppSessionAttributeListener</h2><p>和之前小节的内容比较相似，HttpSessionListenerr类用于session的创建和销毁，HtppSessionAttributeListener则用于监听Session范围内属性的变动。</p>
+<p>ServletRequestListener接口规定了以下方法：</p>
+<pre><code>public interface HttpSessionListener extends EventListener {
+
+    /** 
+     * Receives notification that a session has been created.
+     *
+     * @param se the HttpSessionEvent containing the session
+     */
+    public void sessionCreated(HttpSessionEvent se);
+
+    /** 
+     * Receives notification that a session is about to be invalidated.
+     *
+     * @param se the HttpSessionEvent containing the session
+     */
+    public void sessionDestroyed(HttpSessionEvent se);
+
+}</code></pre><p>ServletRequestAttributeListener接口规定了以下方法：</p>
+<pre><code>public interface HttpSessionAttributeListener extends EventListener {
+
+    /**
+     * Receives notification that an attribute has been added to a
+     * session.
+     *
+     * @param event the HttpSessionBindingEvent containing the session
+     * and the name and value of the attribute that was added
+     */
+    public void attributeAdded(HttpSessionBindingEvent event);
+
+    /**
+     * Receives notification that an attribute has been removed from a
+     * session.
+     *
+     * @param event the HttpSessionBindingEvent containing the session
+     * and the name and value of the attribute that was removed
+     */
+    public void attributeRemoved(HttpSessionBindingEvent event);
+
+    /**
+     * Receives notification that an attribute has been replaced in a
+     * session.
+     *
+     * @param event the HttpSessionBindingEvent containing the session
+     * and the name and (old) value of the attribute that was replaced
+     */
+    public void attributeReplaced(HttpSessionBindingEvent event);
+
+}</code></pre><p>下面给出一个具体的的实例。</p>
+<p><a href="http://在的demo工程包io.github.abbottkilig.listener下新建SessionListener.java" class="test test-url" target="_blank" rel="noopener noreferrer">在的demo工程包io.github.abbottkilig.listener下新建SessionListener.java</a>，拷贝以下代码</p>
+<pre><code>package io.github.abbottkilig.listener;
+
+import javax.servlet.annotation.WebListener;
+import javax.servlet.http.HttpSessionActivationListener;
+import javax.servlet.http.HttpSessionAttributeListener;
+import javax.servlet.http.HttpSessionBindingEvent;
+import javax.servlet.http.HttpSessionEvent;
+import javax.servlet.http.HttpSessionListener;
+
+@WebListener
+public class SessionListener
+        implements HttpSessionListener, HttpSessionAttributeListener {
+
+
+    @Override
+    public void attributeAdded(HttpSessionBindingEvent event) {
+        String name = event.getName();
+        String value = (String)event.getValue();
+        System.out.println(&quot;session adds a new attribute(name=&quot; +name + &quot;value=&quot; + value+&quot;)&quot;);
+    }
+
+    @Override
+    public void attributeRemoved(HttpSessionBindingEvent event) {
+        String name = event.getName();
+        String value = (String)event.getValue();
+        System.out.println(&quot;session removes a  attribute(name=&quot; +name + &quot;value=&quot; + value+&quot;)&quot;);
+    }
+
+    @Override
+    public void attributeReplaced(HttpSessionBindingEvent event) {
+        String name = event.getName();
+        String value = (String)event.getValue();
+        System.out.println(&quot;session changes a  attribute(name=&quot; +name + &quot;value=&quot; + value+&quot;)&quot;);
+    }
+
+    @Override
+    public void sessionCreated(HttpSessionEvent se) {
+        String id = se.getSession().getId();
+        String user = (String)se.getSession().getAttribute(&quot;user&quot;);
+
+        System.out.println(&quot;session &quot; + id + &quot; is created between &quot; + se.getSession().getServletContext() + &quot;and &quot; + user);
+    }
+
+    @Override
+    public void sessionDestroyed(HttpSessionEvent se) {
+        String id = se.getSession().getId();
+        String user = (String)se.getSession().getAttribute(&quot;user&quot;);
+
+        System.out.println(&quot;session &quot; + id + &quot; is closed between &quot; + se.getSession().getServletContext() + &quot;and &quot; + user);
+    }
+
+}</code></pre><p>接下来，浏览器访问<a href="http://localhost/demo/login.jsp" target="_blank" rel="noopener">http://localhost/demo/login.jsp</a>将看到类似图1-1的日志记录信息，表明监听器能够正常监听用户的请求。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190926104128447.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTAxNjY0MDQ=,size_16,color_FFFFFF,t_70" alt="图1-1"></p>
+<h1 id="2-Listener配置"><a href="#2-Listener配置" class="headerlink" title="2. Listener配置"></a>2. Listener配置</h1><p>配置监听器和配置Servlet、Filter一样有两种方式：</p>
+<ul>
+<li><p>注解配置</p>
+<ul>
+<li><p>注解配置使用@WebListener注解即可向Web应用注册该监听器</p>
+</li>
+<li><p>@WebListener的源码如下，说明其不像Servlet、Filter需要配置其他内容</p>
+<p>  @Target({ElementType.TYPE})<br>  @Retention(RetentionPolicy.RUNTIME)<br>  @Documented<br>  public @interface WebListener {</p>
+<pre><code>/**
+ * Description of the listener
+ */
+String value() default &quot;&quot;;</code></pre><p>  }</p>
+</li>
+</ul>
+</li>
+<li><p>web.xml配置</p>
+<ul>
+<li>web.xml中使用<code>&lt;listener&gt;</code>节点进行配置</li>
+<li>在<code>&lt;listener&gt;</code>节点中指定Listener的实现类</li>
+</ul>
+</li>
+</ul>
+<p>下面给出Listener类的web.xml配置模板，其中*表示具体的需要添加的监听器类</p>
+<pre><code>&lt;listener&gt;
+    &lt;listener-class&gt;io.github.abbottkilig.listener.*&lt;/listener-class&gt;
+&lt;/listener&gt;</code></pre>
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 <a href="mailto:AbbottKilig@163.com" class="test test-email" target="_blank" rel="noopener noreferrer">AbbottKilig@163.com</a> </span>
+    </div>
+</article>
+
+
+<p>
+    <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>Listener简介</p>
+    
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="AbbottKilig">AbbottKilig</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-09-25, 19:38:21</p>
+    <p><span class="copy-title">最后更新:</span>2019-09-26, 10:48:40</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/JavaEE/Listener简介/" title="Listener简介">http://AbbottKilig.github.io/JavaEE/Listener简介/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 abbottkilig</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['<a href="https://instagram.com/explore/tags/Web" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#Web</a>','<a href="https://instagram.com/explore/tags/Tomcat" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#Tomcat</a>','<a href="https://instagram.com/explore/tags/Java" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#Java</a>','<a href="https://instagram.com/explore/tags/java" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#java</a>','<a href="https://instagram.com/explore/tags/Filter" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#Filter</a>','<a href="https://instagram.com/explore/tags/JSP" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#JSP</a>','<a href="https://instagram.com/explore/tags/Listener" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#Listener</a>',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("<a href="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" class="test test-url" target="_blank" rel="noopener noreferrer">busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js</a>");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid <a href="https://instagram.com/explore/tags/e2dede" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#e2dede</a>;
+        background: <a href="https://instagram.com/explore/tags/FFF" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#FFF</a>;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid <a href="https://instagram.com/explore/tags/C3CCD0" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#C3CCD0</a>;
+        text-align: right;
+        color: <a href="https://instagram.com/explore/tags/AAA" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#AAA</a>;
+        background-color: <a href="https://instagram.com/explore/tags/fafafa" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#fafafa</a>;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list <a href="https://instagram.com/explore/tags/local" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#local</a>-search-result a .post-title {
+        color: <a href="https://instagram.com/explore/tags/383636" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#383636</a>;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list <a href="https://instagram.com/explore/tags/local" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#local</a>-search-result a .post-date {
+        color: <a href="https://instagram.com/explore/tags/5e5e5f" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#5e5e5f</a>;
+    }
+    
+    
+    .nav-right nav a.hover, <a href="https://instagram.com/explore/tags/local" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#local</a>-search-result a.hover{
+        background-color: <a href="https://instagram.com/explore/tags/e2e0e0" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#e2e0e0</a>;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: <a href="https://instagram.com/explore/tags/e2dede" class="test test-hashtag" target="_blank" rel="noopener noreferrer">#e2dede</a> solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("<a href="https://i.loli.net/2019/07/22/5d3521411f3f169375.png" class="test test-url" target="_blank" rel="noopener noreferrer">https://i.loli.net/2019/07/22/5d3521411f3f169375.png</a>");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
