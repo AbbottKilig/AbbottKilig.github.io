@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>手动构建Web应用 | AbbottKilig&#39;s blog</title>
-  <meta name="keywords" content=" Web ">
-  <meta name="description" content="手动构建Web应用 | AbbottKilig&#39;s blog">
+  <title>Spring反转控制IOC与依赖注入DI | AbbottKilig&#39;s blog</title>
+  <meta name="keywords" content=" Spring , Web ">
+  <meta name="description" content="Spring反转控制IOC与依赖注入DI | AbbottKilig&#39;s blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="AbbottKilig&apos;s blog">
 <meta property="og:type" content="website">
@@ -311,9 +311,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-手动构建Web应用" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Spring反转控制IOC与依赖注入DI" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">手动构建Web应用</h1>
+        <h1 class="article-title">Spring反转控制IOC与依赖注入DI</h1>
     
     <div class="article-meta">
         
@@ -328,6 +328,8 @@
         
         <span class="tag">
             
+            <a href="javascript:" class="color2">Spring</a>
+            
             <a href="javascript:" class="color4">Web</a>
             
         </span>
@@ -335,7 +337,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-09-23 08:26:00'>2019-09-21 19:57</time>
+        创建时间:<time class="date" title='更新时间: 2019-09-27 17:28:45'>2019-09-27 10:26</time>
         
     </div>
     <div class="article-meta">
@@ -357,7 +359,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-创建Web应用目录结构"><span class="toc-text">1. 创建Web应用目录结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-配置web-xml描述符"><span class="toc-text">2. 配置web.xml描述符</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-1-Spring-IOC和Bean简介"><span class="toc-text">1.1 Spring IOC和Bean简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-spring容器概述"><span class="toc-text">1.2 spring容器概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-1-元数据配置"><span class="toc-text">1.2.1 元数据配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-2-容器实例化"><span class="toc-text">1.2.2 容器实例化</span></a></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -373,112 +375,106 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-创建Web应用目录结构"><a href="#1-创建Web应用目录结构" class="headerlink" title="1. 创建Web应用目录结构"></a>1. 创建Web应用目录结构</h1><p>JSP、Servlet、Listener和Filter等都必须运行在Web应用中，虽然可以借助Eclipse、IDEA等快速构建Web应用生成对应的目录结构，但是对于开发者而言，深刻的理解Web应用的目录结构弥足关键，因此需要学习如何手动构建一个Web应用。</p>
-<p>坚持使用最原始的工具进行学习，从基本功练起，虽然一开始的过程有些痛苦，但到最后能让开发者对技术的每个细节都有更准备的把握，真正成为一名优秀的程序员。</p>
-<p>接下来，将带领大家徒手构建一个Web应用，需按如下的步骤进行：</p>
-<ol>
-<li><p>在任意目录下新建一个文件夹，本文采用在D:/project下新建一个demo文件夹来构建一个Web应用</p>
-</li>
-<li><p>在demo文件下新建WEB-INF文件夹</p>
-</li>
-<li><p>在WEB-INF文件夹下新建web.xml文件，并将如下的内容拷贝到web.xml中。</p>
-</li>
-</ol>
+        <p>Spring框架中最重要的就是控制反转IOC，本节将对IOC进行详细的介绍。</p>
+<h1 id="1-1-Spring-IOC和Bean简介"><a href="#1-1-Spring-IOC和Bean简介" class="headerlink" title="1.1 Spring IOC和Bean简介"></a>1.1 Spring IOC和Bean简介</h1><p>本节介绍了Spring框架中反转控制IOC的实现。IOC也称为依赖注入DI。在此过程中，Spring容器在创建Bean对象时，仅通过构造函数的参数，get/set方法的参数来注入其依赖项。</p>
+<p>Spring框架的<code>org.springframework.beans</code>和<code>org.springframework.context</code>包是IOC实现的基础。<code>org.springframework.beans</code>包中定义的<code>BeanFactroty</code>接口提供了一种可以管理任何对象的高级配置机制。<code>ApplicationContext</code>继承了<code>BeanFactory</code>，增加了：</p>
+<ul>
+<li>AOP集成</li>
+<li>消息处理</li>
+<li>事件发布</li>
+</ul>
+<p>简而言之，<code>BeanFactory</code>提供了基本的配置框架和功能。<code>ApplicationContext</code>是<code>BeanFactory</code>的子类，但增加了更多企业实用的功能。</p>
+<p>Spring中，由Spring控制的构建应用程序的主干对象称为bean。bean通过spring IOC组装、实例化、管理。容器的配置元数据反映了bean及其之间的依赖关系。</p>
+<h2 id="1-2-spring容器概述"><a href="#1-2-spring容器概述" class="headerlink" title="1.2 spring容器概述"></a>1.2 spring容器概述</h2><p><code>org.springframework.context.ApplicationContext</code>接口表现了spring IOC的功能：负责bean的实例化、组装、配置。容器通过以xml或Java注解的方式提供的元数据来时时间这样的功能。</p>
+<p>在实际应用中，通常创建<code>org.springframework.context.ApplicationContext</code>接口的具体实现类<code>ClassPathXmlApplicationContext</code>或<code>FileSystemXmlApplicationContext</code>来实现读取xml文件元数据的配置。</p>
+<p>下图显示了Spring的工作原理的高级视图。应用程序类和配置元数据结合在一起，在<code>ApplicationContext</code>创建成功并初始化之后，基于配置的应用程序能够启动正常服务。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190927135114911.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTAxNjY0MDQ=,size_16,color_FFFFFF,t_70" alt="图1-1"></p>
+<h3 id="1-2-1-元数据配置"><a href="#1-2-1-元数据配置" class="headerlink" title="1.2.1 元数据配置"></a>1.2.1 元数据配置</h3><p>基于历史传统，Spring元数据的配置也采用了简单直观的xml格式。但是，基于xml的元数据不是配置元数据的唯一形式，Spring IOC也提供了如下的两种方式：</p>
+<ul>
+<li>基于注解的配置：spring 2.5引入的基于注解的配置方式</li>
+<li>基于Java的配置：从spring 3.0开始，JavaConfig项目提供的很多功能成为了spring framework的一部分。因此，也可以采用的java的配置。</li>
+</ul>
+<p>基于xml的配置中，bean的配置由<code>&lt;beans&gt;</code>顶级元素的<code>&lt;bean&gt;</code>指定。Java配置通常在@Configuration类中使用带@Bean注解的方法。</p>
+<p>bean定义了组成应用程序的实际对象，如服务层对象，数据访问对象，表示层对象，基础结构对象等。通常，不会在容器中配置细粒度的域对象，因为创建和加载域对象通常是DAO和业务逻辑的职责。</p>
+<p>下面给出xml配置元数据的基本结构。</p>
 <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;<a href="http://www.springframework.org/schema/beans" class="test test-url" target="_blank" rel="noopener noreferrer">http://www.springframework.org/schema/beans</a>&quot;
+    xmlns:xsi=&quot;<a href="http://www.w3.org/2001/XMLSchema-instance" class="test test-url" target="_blank" rel="noopener noreferrer">http://www.w3.org/2001/XMLSchema-instance</a>&quot;
+    xsi:schemaLocation=&quot;<a href="http://www.springframework.org/schema/beans" class="test test-url" target="_blank" rel="noopener noreferrer">http://www.springframework.org/schema/beans</a>
+        <a href="https://www.springframework.org/schema/beans/spring-beans.xsd" class="test test-url" target="_blank" rel="noopener noreferrer">https://www.springframework.org/schema/beans/spring-beans.xsd</a>&quot;&gt;
 
-&lt;web-app xmlns=&quot;<a href="http://xmlns.jcp.org/xml/ns/javaee" class="test test-url" target="_blank" rel="noopener noreferrer">http://xmlns.jcp.org/xml/ns/javaee</a>&quot;
-  xmlns:xsi=&quot;<a href="http://www.w3.org/2001/XMLSchema-instance" class="test test-url" target="_blank" rel="noopener noreferrer">http://www.w3.org/2001/XMLSchema-instance</a>&quot;
-  xsi:schemaLocation=&quot;<a href="http://xmlns.jcp.org/xml/ns/javaee" class="test test-url" target="_blank" rel="noopener noreferrer">http://xmlns.jcp.org/xml/ns/javaee</a>
-                      <a href="http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" class="test test-url" target="_blank" rel="noopener noreferrer">http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd</a>&quot;
-  version=&quot;4.0&quot;
-  metadata-complete=&quot;true&quot;&gt;
+    &lt;bean id=&quot;...&quot; class=&quot;...&quot;&gt;   
+        &lt;!-- collaborators and configuration for this bean go here --&gt;
+    &lt;/bean&gt;
 
-&lt;/web-app&gt;</code></pre><ol start="4">
-<li><p>在WEB-INF文件下新建classes和lib两个文件夹，这两个文件夹都用来保存Web应用所需要的Java类文件，区别是classes保存Web应用生成的单个class文件，lib文件夹保存的是Web应用依赖的jar包</p>
-</li>
-<li><p>在demo目录下新建hello.jsp文件，复制以下内容</p>
-<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=utf-8&quot;
-pageEncoding=&quot;utf-8&quot;%&gt;
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;meta charset=&quot;utf-8&quot;&gt;
-&lt;title&gt;hello Web&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;h1&gt;Hello World&lt;/h1&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre></li>
-<li><p>此时已经构建完成了一个基本的空的Web应用。将该应用复制到Tomcat的webapps目录下，该Web应用便可以自动部署在Tomcat上了。</p>
-</li>
-<li><p>启动Tomcat服务器, 浏览器地址输出<a href="http://127.0.0.1/demo/hello.jsp" target="_blank" rel="noopener">http://127.0.0.1/demo/hello.jsp</a>,即可以看到如图1-1的显示的页面，说明Web应用成功构建并部署到Tomcat。<br><img src="https://img-blog.csdnimg.cn/20190921232304163.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTAxNjY0MDQ=,size_16,color_FFFFFF,t_70" alt="图1-1"></p>
-</li>
-</ol>
-<h1 id="2-配置web-xml描述符"><a href="#2-配置web-xml描述符" class="headerlink" title="2. 配置web.xml描述符"></a>2. 配置web.xml描述符</h1><p>在上一节中，说到构建Web应用需要在WEB-INF目录下创建web.xml。事实上，web.xml文件被称为Java Web应用的配置描述符，在Servlet2.5规范之前，每个Java Web应用都必须包含一个存放在WEB-INF路径下的web.xml文件，而且绝大部分组件都是通过此文件来进行管理配置。</p>
-<blockquote>
-<p>从Servlet3开始，web.xml文件不再是Java Web应用必须的文件，Servelet3可以通过注解的方式来配置管理Web组件。</p>
+    &lt;bean id=&quot;...&quot; class=&quot;...&quot;&gt;
+        &lt;!-- collaborators and configuration for this bean go here --&gt;
+    &lt;/bean&gt;
+
+    &lt;!-- more bean definitions go here --&gt;
+
+&lt;/beans&gt;</code></pre><blockquote>
+<p>id属性用于唯一标示单个bean<br>class属性定义bean的类型，应采用全类限定名。</p>
 </blockquote>
-<p>对于Java Web应用，WEB-INF是一个特殊的文件夹，Web容器会包含该文件夹下的内容，即使Tomcat在自身的web.xml文件中打开的<code>listings</code>节点，客户端浏览器也无法访问该路径下的任何内容。</p>
-<p>通过对web.xml文件的修改，通常可以配置Java Web应用的如下内容：</p>
-<ul>
-<li>配置JSP</li>
-<li>配置管理Servlet</li>
-<li>配置管理Listener</li>
-<li>配置管理Filter</li>
-<li>配置标签库</li>
-<li>配置JSP属性</li>
-</ul>
-<p>而且，web.xml文件还可以负责配置管理如下的内容：</p>
-<ul>
-<li>配置管理JAAS授权认证</li>
-<li>配置和管理资源引用</li>
-<li>Web应用首页</li>
-</ul>
-<p>在上一节中，创建了一个包含如下内容的默认web.xml文件。该文件的根元素是<code>&lt;web-app&gt;</code>,其中属性<code>metadata-complete</code>是属于Servlet3规范中新增的属性。该属性为true时，Web应用不会加载注解配置的Web组件（如Servlet、Filter、Listener等）</p>
+<h3 id="1-2-2-容器实例化"><a href="#1-2-2-容器实例化" class="headerlink" title="1.2.2 容器实例化"></a>1.2.2 容器实例化</h3><p>提供给<code>ApplicationContext</code>构造函数的一个或多个位置路径可以从各种外部资源（例如本地文件系统，Java等）加载配置元数据CLASSPATH。</p>
+<p>接下来，作为具体示例，我们将依靠spring IOC对demo项目进行进一步改造，建立数据库查询服务。</p>
+<p>首先，通过<code>ApplicationContext</code>加载元数据配置的xml文件。</p>
+<pre><code>ApplicationContext context = new ClassPathXmlApplicationContext(&quot;services.xml&quot;,&quot;daos.xml&quot;);</code></pre><p>然后，给出services.xml文件的配置</p>
 <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;<a href="http://www.springframework.org/schema/beans" class="test test-url" target="_blank" rel="noopener noreferrer">http://www.springframework.org/schema/beans</a>&quot;
+    xmlns:xsi=&quot;<a href="http://www.w3.org/2001/XMLSchema-instance" class="test test-url" target="_blank" rel="noopener noreferrer">http://www.w3.org/2001/XMLSchema-instance</a>&quot;
+    xsi:schemaLocation=&quot;<a href="http://www.springframework.org/schema/beans" class="test test-url" target="_blank" rel="noopener noreferrer">http://www.springframework.org/schema/beans</a>
+        <a href="https://www.springframework.org/schema/beans/spring-beans.xsd" class="test test-url" target="_blank" rel="noopener noreferrer">https://www.springframework.org/schema/beans/spring-beans.xsd</a>&quot;&gt;
 
-    &lt;web-app xmlns=&quot;<a href="http://xmlns.jcp.org/xml/ns/javaee" class="test test-url" target="_blank" rel="noopener noreferrer">http://xmlns.jcp.org/xml/ns/javaee</a>&quot;
-      xmlns:xsi=&quot;<a href="http://www.w3.org/2001/XMLSchema-instance" class="test test-url" target="_blank" rel="noopener noreferrer">http://www.w3.org/2001/XMLSchema-instance</a>&quot;
-      xsi:schemaLocation=&quot;<a href="http://xmlns.jcp.org/xml/ns/javaee" class="test test-url" target="_blank" rel="noopener noreferrer">http://xmlns.jcp.org/xml/ns/javaee</a>
-                          <a href="http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" class="test test-url" target="_blank" rel="noopener noreferrer">http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd</a>&quot;
-      version=&quot;4.0&quot;
-      metadata-complete=&quot;true&quot;&gt;
+    &lt;bean id=&quot;daoservice&quot; class=&quot;<a href="http://io.github.abbottkilig.services.DAOService" class="test test-url" target="_blank" rel="noopener noreferrer">io.github.abbottkilig.services.DAOService</a>&quot;&gt;   
+        &lt;property name=&quot;dbu&quot; ref=&quot;dbutil&quot;&gt;
+        &lt;/property&gt;
+    &lt;/bean&gt;
+&lt;/beans&gt;</code></pre><p>在xml文件中定义了一个类型为<code><a href="http://io.github.abbottkilig.services.DAOService" class="test test-url" target="_blank" rel="noopener noreferrer">io.github.abbottkilig.services.DAOService</a></code>的bean，该bean的代码如下：</p>
+<pre><code>package <a href="http://io.github.abbottkilig.services" class="test test-url" target="_blank" rel="noopener noreferrer">io.github.abbottkilig.services</a>;
 
-&lt;/web-app&gt;</code></pre><p>在web.xml的<code>web-app</code>节点下，可以创建配置Web应用首页的节点元素<code>welcome-file-list</code>,该元素可以包含多个<code>welcome-file</code>子元素，其中每个<code>welcom-file</code>子元素配置了一个Web首页，例如，如下的配置片段：</p>
-<pre><code>&lt;welcome-file-list&gt;
-    &lt;welcome-file&gt;index.html&lt;/welcome-file&gt;
-    &lt;welcome-file&gt;index.xhtml&lt;/welcome-file&gt;
-    &lt;welcome-file&gt;index.htm&lt;/welcome-file&gt;
-    &lt;welcome-file&gt;index.jsp&lt;/welcome-file&gt;
-&lt;/welcome-file-list&gt;</code></pre><p>该片段依次配置了Web应用的首页是index.html，index.xhtml，index.htm，index.jsp。当浏览者访问该Web应用时，系统将按照此顺序给浏览者呈现首页。即当index.html不存在时，展示index.xhtml；index.xhtml不存在时，展示index.htm；依次类推。</p>
-<p>对上一节提到的提到的Web应用demo的web.xml文件进行修改，添加<code>welcome-file-list</code>，形成最终的web.xml文件如下</p>
+import io.github.abbottkilig.utils.DBUtil;
+
+public class DAOService {
+
+
+    private DBUtil dbu;
+
+    public DAOService(DBUtil dbu) {
+        super();
+        this.dbu = dbu;
+    }
+
+    public DAOService() {
+    }
+
+    public DBUtil getDbu() {
+        return dbu;
+    }
+
+    public void setDbu(DBUtil dbu) {
+        this.dbu = dbu;
+    }
+
+
+
+}</code></pre><p>接下来，<code>&lt;property&gt;</code>元素表明采用将采用bean的set方法来注入依赖项，而<code>ref</code>则指明了依赖的bean的id。</p>
+<p>接下来，我们给出daos.xml文件的配置：</p>
 <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;<a href="http://www.springframework.org/schema/beans" class="test test-url" target="_blank" rel="noopener noreferrer">http://www.springframework.org/schema/beans</a>&quot;
+    xmlns:xsi=&quot;<a href="http://www.w3.org/2001/XMLSchema-instance" class="test test-url" target="_blank" rel="noopener noreferrer">http://www.w3.org/2001/XMLSchema-instance</a>&quot;
+    xsi:schemaLocation=&quot;<a href="http://www.springframework.org/schema/beans" class="test test-url" target="_blank" rel="noopener noreferrer">http://www.springframework.org/schema/beans</a>
+        <a href="https://www.springframework.org/schema/beans/spring-beans.xsd" class="test test-url" target="_blank" rel="noopener noreferrer">https://www.springframework.org/schema/beans/spring-beans.xsd</a>&quot;&gt;
 
-&lt;web-app xmlns=&quot;<a href="http://xmlns.jcp.org/xml/ns/javaee" class="test test-url" target="_blank" rel="noopener noreferrer">http://xmlns.jcp.org/xml/ns/javaee</a>&quot;
-  xmlns:xsi=&quot;<a href="http://www.w3.org/2001/XMLSchema-instance" class="test test-url" target="_blank" rel="noopener noreferrer">http://www.w3.org/2001/XMLSchema-instance</a>&quot;
-  xsi:schemaLocation=&quot;<a href="http://xmlns.jcp.org/xml/ns/javaee" class="test test-url" target="_blank" rel="noopener noreferrer">http://xmlns.jcp.org/xml/ns/javaee</a>
-                      <a href="http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" class="test test-url" target="_blank" rel="noopener noreferrer">http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd</a>&quot;
-  version=&quot;4.0&quot;
-  metadata-complete=&quot;true&quot;&gt;
-
-  &lt;welcome-file-list&gt;
-        &lt;welcome-file&gt;index.html&lt;/welcome-file&gt;
-        &lt;welcome-file&gt;index.xhtml&lt;/welcome-file&gt;
-        &lt;welcome-file&gt;index.htm&lt;/welcome-file&gt;
-        &lt;welcome-file&gt;hello.jsp&lt;/welcome-file&gt;
-    &lt;/welcome-file-list&gt;
-
-&lt;/web-app&gt;</code></pre><p>此时，通过浏览器直接访问网址<a href="http://localhost:8080/demo" target="_blank" rel="noopener">http://localhost:8080/demo</a>，既可以看到图1-1中显示的内容。</p>
-<p>当在demo目录下新建包含如下内容的index.html时，重新访问<a href="http://localhost:8080/demo" target="_blank" rel="noopener">http://localhost:8080/demo</a>，则会看到如图1-2所示的内容。</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;title&gt;index.html&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;h1&gt;This is index.html&lt;/h1&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre><p><img src="https://img-blog.csdnimg.cn/20190921235332479.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTAxNjY0MDQ=,size_16,color_FFFFFF,t_70" alt="图1-2"></p>
+    &lt;bean id=&quot;dbutil&quot; class=&quot;io.github.abbottkilig.utils.DBUtil&quot;&gt;   
+        &lt;constructor-arg name=&quot;driver&quot; value=&quot;com.mysql.cj.jdbc.Driver&quot;&gt;&lt;/constructor-arg&gt;
+        &lt;constructor-arg name=&quot;url&quot; value=&quot;jdbc:<a href="mysql://localhost:3306/wechat?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC" class="test test-url" target="_blank" rel="noopener noreferrer">mysql://localhost:3306/wechat?useSSL=false&amp;amp;allowPublicKeyRetrieval=true&amp;amp;serverTimezone=UTC</a>&quot;&gt;&lt;/constructor-arg&gt;
+        &lt;constructor-arg name=&quot;username&quot; value=&quot;root&quot;&gt;&lt;/constructor-arg&gt;
+        &lt;constructor-arg name=&quot;password&quot; value=&quot;<a href="mailto:71939224@qq.com" class="test test-email" target="_blank" rel="noopener noreferrer">71939224@qq.com</a>&quot;&gt;&lt;/constructor-arg&gt;
+    &lt;/bean&gt;
+&lt;/beans&gt;</code></pre><p>xml配置文件中，定义了一个类型为<code>io.github.abbottkilig.utils.DBUtil</code>的bean，并通过<code>&lt;constructor-arg&gt;</code>元素通过构造器注入了元素值。</p>
+<p><strong>组成基于XML的配置元数据</strong></p>
+<p>通过前面的配置示例看到，使bean配置跨越了多个xml文件。这样做的原因是：可以通过单独的xml配置文件来代表应用体系中的逻辑层或模块，达到分模块开发维护的目的。</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 <a href="mailto:AbbottKilig@163.com" class="test test-email" target="_blank" rel="noopener noreferrer">AbbottKilig@163.com</a> </span>
@@ -492,12 +488,12 @@ pageEncoding=&quot;utf-8&quot;%&gt;
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>手动构建Web应用</p>
+    <p><span class="copy-title">文章标题:</span>Spring反转控制IOC与依赖注入DI</p>
     
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="AbbottKilig">AbbottKilig</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-09-21, 19:57:50</p>
-    <p><span class="copy-title">最后更新:</span>2019-09-23, 08:26:00</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/JavaEE/手动构建Web应用/" title="手动构建Web应用">http://AbbottKilig.github.io/JavaEE/手动构建Web应用/</a>
+    <p><span class="copy-title">发布时间:</span>2019-09-27, 10:26:14</p>
+    <p><span class="copy-title">最后更新:</span>2019-09-27, 17:28:45</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/JavaEE/Spring反转控制IOC与依赖注入DI/" title="Spring反转控制IOC与依赖注入DI">http://AbbottKilig.github.io/JavaEE/Spring反转控制IOC与依赖注入DI/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
